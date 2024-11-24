@@ -1,0 +1,23 @@
+.top-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    img{
+        height: 35px;
+    }
+  }
+
+  .right {
+    width: 100%;
+    .list-items {
+      list-style-type: none;
+      display: flex;
+      justify-content: end;
+      gap: 3rem;
+      margin: 0;
+    }
+  }
+}
