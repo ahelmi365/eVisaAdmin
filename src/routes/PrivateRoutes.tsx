@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 
 const PrivateRoutes = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   console.log({isLoggedIn})
 
