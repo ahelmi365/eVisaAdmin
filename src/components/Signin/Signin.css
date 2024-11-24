@@ -1,0 +1,43 @@
+.signin-top {
+  background-image: url("../../assets/images/signinbg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 33.33vh;
+  width: 100%;
+
+  @media screen and (max-width:768px) {
+    height: 40vh;
+  }
+}
+.app-logo-container {
+  /* width: 100px; */
+  margin: 1rem auto 1rem;
+  
+}
+
+.signin-form {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+
+
+
+  width: 600px;
+  max-width: 80%;
+  /* height: 600px; */
+  margin: -60px auto 0;
+
+  padding: 1rem;
+  box-shadow: 0px 5px 12px 0px;
+  background-color: white;
+  border-radius: 10px;
+
+  @media screen and (max-width:768px) {
+    margin-top: -75px;
+  }
+
+  .form-fields {
+    flex: 1;
+  }
+}
