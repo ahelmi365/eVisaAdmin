@@ -1,4 +1,4 @@
-import "./NavBar.css"
+import "./NavBar.css";
 
 import logo from "../../assets/images/logo.png";
 const NavBar = () => {
@@ -19,6 +19,9 @@ const NavBar = () => {
           </li>
           <li>
             <a ng-href="/#/VisaRequest">My Requests</a>
+          </li>
+          <li>
+            <button className="btn btn-danger">Logout</button>
           </li>
         </ul>
       </div>
