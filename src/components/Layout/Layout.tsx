@@ -13,7 +13,9 @@ const Layout = () => {
       </header>
       {/* main */}
       <main className="main">
-        <Outlet />
+        <div className="card p-4">
+          <Outlet />
+        </div>
       </main>
       {/* footer */}
       <Footer />
