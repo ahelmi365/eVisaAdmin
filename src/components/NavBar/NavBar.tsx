@@ -1,27 +1,29 @@
 import "./NavBar.css";
 
 import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <div className="top-navbar">
       <div className="left">
-        <img
-          src={logo}
-          //   style="height: 40px;"
-        />
+        <Link to="/landing" className="al-sidebar-list-link">
+          <img src={logo} />
+        </Link>
       </div>
       <div className="right">
         <ul className="list-items">
           <li>
-            <a ng-href="/#/home" className="al-sidebar-list-link">
+            <Link to="/landing" className="al-sidebar-list-link">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a ng-href="/#/VisaRequest">My Requests</a>
+            <Link to="/view-all-requests">My Requests</Link>
           </li>
           <li>
-            <button className="btn btn-danger">Logout</button>
+            <Link to="/signin">
+              <button className="btn btn-danger">Logout</button>
+            </Link>
           </li>
         </ul>
       </div>
