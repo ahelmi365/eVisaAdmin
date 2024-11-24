@@ -14,7 +14,8 @@ export const router = createBrowserRouter(
     <Route>
       <Route path="/signin" element={<Signin />} />
       <Route path="/" element={<PrivateRoutes />}>
-        <Route index   element={<Landing />} />
+        <Route index element={<Landing />} />
+        <Route path={"/landing"} element={<Landing />} />
         <Route path={"/view-all-requests"} element={<ViewAllRequests />} />
         <Route
           path={"/view-request-details"}
