@@ -2,14 +2,14 @@ import { Navigate } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 
 const PrivateRoutes = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  console.log({ isLoggedIn });
 
-  console.log({isLoggedIn})
-
-  if (!isLoggedIn) {
+  if (isLoggedIn === "false") {
     return <Navigate to={"/signin"} />;
+  } else {
+    return <Layout />;
   }
-  return <Layout />;
 };
 
 export default PrivateRoutes;
