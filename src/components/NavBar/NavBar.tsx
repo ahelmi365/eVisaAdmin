@@ -2,7 +2,9 @@ import "./NavBar.css";
 
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
+import useNavBar from "./useNavBar";
 const NavBar = () => {
+  const handleLogout = useNavBar();
   return (
     <div className="top-navbar">
       <div className="left">
@@ -22,7 +24,9 @@ const NavBar = () => {
           </li>
           <li>
             <Link to="/signin">
-              <button className="btn btn-danger">Logout</button>
+              <button className="btn btn-danger" onClick={handleLogout}>
+                Logout
+              </button>
             </Link>
           </li>
         </ul>
