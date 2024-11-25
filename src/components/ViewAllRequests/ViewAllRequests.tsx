@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
-import useViewAllRequests from "./useViewAllRequests";
 import ArrowDownUp from "../Icons/ArrowDownUp/ArrowDownUp";
-import { SortType } from "../../types/interfaces";
+import useViewAllRequests from "./useViewAllRequests";
 import "./ViewAllRequests.css";
+import ArrowAssending from "../Icons/ArrowAssending/ArrowAssending";
+import ArrowDessending from "../Icons/ArrowDessending/ArrowDessending";
 
 const ViewAllRequests = () => {
-  const { allFilteredRequests, searchText, setSearchText, sortAllRequests } =
-    useViewAllRequests();
+  const {
+    sortedBy,
+    tableHeaders,
+    allFilteredRequests,
+    searchText,
+    setSearchText,
+    sortAllRequests,
+    isSortAssending,
+  } = useViewAllRequests();
   const renderedRequestsRows = allFilteredRequests.map((request) => (
     <tr key={request.id}>
       {/* <th scope="row">{index + 1}</th> */}
@@ -23,6 +31,26 @@ const ViewAllRequests = () => {
     </tr>
   ));
 
+  const renderedTableHeaders = tableHeaders.map((header) => (
+    <th
+      key={header.sortType}
+      scope="col"
+      onClick={() => {
+        sortAllRequests(header.sortType);
+      }}
+    >
+      {header.label}{" "}
+      {sortedBy === header.sortType ? (
+        isSortAssending ? (
+          <ArrowAssending />
+        ) : (
+          <ArrowDessending />
+        )
+      ) : (
+        <ArrowDownUp style={{ opacity: "0.2" }} />
+      )}
+    </th>
+  ));
   return (
     <div>
       <div className="d-flex justify-content-between">
@@ -41,48 +69,7 @@ const ViewAllRequests = () => {
       <table className="table">
         <thead>
           <tr>
-            {/* <th scope="col">#</th> */}
-            <th
-              scope="col"
-              onClick={() => {
-                sortAllRequests(SortType.ByRequestNumber);
-              }}
-            >
-              Application Number
-              <ArrowDownUp />
-            </th>
-            <th
-              scope="col"
-              onClick={() => {
-                sortAllRequests(SortType.ByRequestFullName);
-              }}
-            >
-              Full Name <ArrowDownUp />
-            </th>
-            <th
-              scope="col"
-              onClick={() => {
-                sortAllRequests(SortType.ByRequestPassportNumber);
-              }}
-            >
-              Passport Number <ArrowDownUp />
-            </th>
-            <th
-              scope="col"
-              onClick={() => {
-                sortAllRequests(SortType.ByRequestVisaType);
-              }}
-            >
-              Visa Type <ArrowDownUp />
-            </th>
-            <th
-              scope="col"
-              onClick={() => {
-                sortAllRequests(SortType.ByRequestStatus);
-              }}
-            >
-              Status <ArrowDownUp />
-            </th>
+            {renderedTableHeaders}
             <th scope="col">View</th>
           </tr>
         </thead>

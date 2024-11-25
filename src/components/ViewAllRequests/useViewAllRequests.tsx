@@ -6,6 +6,13 @@ import {
   VisaType,
 } from "../../types/interfaces";
 
+const tableHeaders = [
+  { label: "Application Number", sortType: SortType.ByRequestNumber },
+  { label: "Full Name", sortType: SortType.ByRequestFullName },
+  { label: "Passport Number", sortType: SortType.ByRequestPassportNumber },
+  { label: "Visa Type", sortType: SortType.ByRequestVisaType },
+  { label: "Status", sortType: SortType.ByRequestStatus },
+];
 const useViewAllRequests = () => {
   const [searchText, setSearchText] = useState("");
   const [isSortAssending, setIsSortAssending] = useState(true);
@@ -106,7 +113,15 @@ const useViewAllRequests = () => {
     }
   };
 
-  return { allFilteredRequests, searchText, setSearchText, sortAllRequests };
+  return {
+    tableHeaders,
+    allFilteredRequests,
+    searchText,
+    setSearchText,
+    sortAllRequests,
+    sortedBy,
+    isSortAssending
+  };
 };
 
 export default useViewAllRequests;
