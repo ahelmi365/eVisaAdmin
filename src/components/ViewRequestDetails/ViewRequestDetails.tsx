@@ -262,10 +262,14 @@ const ViewRequestDetails = () => {
 
       <div className="row gap-4 mt-4">
         <div className="col-sm-12 col-md-3">
-          <button className="btn btn-primary w-100">Accept</button>
+          <button className="btn btn-primary w-100" type="button">
+            Accept
+          </button>
         </div>
         <div className="col-sm-12 col-md-3">
-          <button className="btn btn-danger w-100">Reject</button>
+          <button className="btn btn-danger w-100" type="button">
+            Reject
+          </button>
         </div>
       </div>
     </div>
