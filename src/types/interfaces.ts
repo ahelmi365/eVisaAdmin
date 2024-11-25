@@ -17,3 +17,11 @@ export enum VisaStatus {
   Accepted = "Accepted",
   Rejected = "Rejected",
 }
+
+export enum SortType {
+  ByRequestNumber = "applicationNumber",
+  ByRequestFullName = "fullName",
+  ByRequestPassportNumber = "passportNumber",
+  ByRequestVisaType = "visaType",
+  ByRequestStatus = "status",
+}
