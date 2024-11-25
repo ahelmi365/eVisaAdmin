@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { IRequest, VisaStatus, VisaType } from "../../types/interfaces";
+import {
+  IRequest,
+  SortType,
+  VisaStatus,
+  VisaType,
+} from "../../types/interfaces";
 
 const useViewAllRequests = () => {
+  const [searchText, setSearchText] = useState("");
+  const [isSortAssending, setIsSortAssending] = useState(true);
+  const [sortedBy, setSortedBy] = useState<SortType>(
+    SortType.ByRequestFullName
+  );
   const [allRequests, setAllRequetss] = useState<IRequest[]>([
     {
       id: 1,
-      applicationNumber: "123",
+      applicationNumber: "1",
       fullName: "Ali Helmi",
       passportNumber: "0244444444",
       visaType: VisaType.Single,
@@ -13,7 +23,7 @@ const useViewAllRequests = () => {
     },
     {
       id: 2,
-      applicationNumber: "456",
+      applicationNumber: "10",
       fullName: "Taha Helmi",
       passportNumber: "0255555555",
       visaType: VisaType.Double,
@@ -21,7 +31,7 @@ const useViewAllRequests = () => {
     },
     {
       id: 3,
-      applicationNumber: "789",
+      applicationNumber: "20",
       fullName: "Moahmed Helmi",
       passportNumber: "0266666666",
       visaType: VisaType.Single,
@@ -29,10 +39,23 @@ const useViewAllRequests = () => {
     },
   ]);
 
-  const [allFilteredRequests, setAllFilteredRequetss] =
-    useState<IRequest[]>(allRequests);
+  const sortRequestsByText = (requests: IRequest[]) => {
+    const sortedRequests = requests.sort((a, b) => {
+      const fullNameA = (a[sortedBy] as string).toLowerCase();
+      const fullNameB = (b[sortedBy] as string).toLowerCase();
+      if (fullNameA < fullNameB) {
+        return isSortAssending ? -1 : 1;
+      } else if (fullNameA > fullNameB) {
+        return isSortAssending ? 1 : -1;
+      }
+      return 0;
+    });
 
-  const [searchText, setSearchText] = useState("");
+    return sortedRequests;
+  };
+  const [allFilteredRequests, setAllFilteredRequetss] = useState<IRequest[]>(
+    sortRequestsByText(allRequests)
+  );
 
   const filterAllRequests = (text: string) => {
     const textLowerCase = text.toLowerCase();
@@ -70,7 +93,20 @@ const useViewAllRequests = () => {
     filterAllRequests(searchText);
   }, [searchText]);
 
-  return { allFilteredRequests, searchText, setSearchText };
+  const sortAllRequests = (sortType: SortType) => {
+    console.log({ sortType });
+    setSortedBy(sortType);
+    const sortedRequests = sortRequestsByText(allFilteredRequests);
+    console.log({ sortedRequests });
+    setAllRequetss(sortedRequests);
+    if (sortType === sortedBy) {
+      setIsSortAssending(!isSortAssending);
+    } else {
+      setIsSortAssending(true);
+    }
+  };
+
+  return { allFilteredRequests, searchText, setSearchText, sortAllRequests };
 };
 
 export default useViewAllRequests;
