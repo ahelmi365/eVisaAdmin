@@ -1,28 +1,38 @@
+import { Link } from "react-router-dom";
+
 const ViewAllRequests = () => {
   const requests = [
     {
-      first: "Ali",
-      last: "Helmy",
-      handle: "@ali",
+      applicationNumber: "#1234",
+      fullName: "Ali Helmi",
+      passportNumber: "02589641422",
+      visaType: "Single",
     },
     {
-      first: "Taha",
-      last: "Helmy",
-      handle: "@taha",
+      applicationNumber: "#1234",
+      fullName: "Taha Helmi",
+      passportNumber: "02589641422",
+      visaType: "Double",
     },
     {
-      first: "Mohamed",
-      last: "Helmy",
-      handle: "@mo",
+      applicationNumber: "#1234",
+      fullName: "Moahmed Helmi",
+      passportNumber: "02589641422",
+      visaType: "Single",
     },
   ];
   const renderedRequestsRows = requests.map((request, index) => (
-    <tr key={request.handle}>
-      <th scope="row">{index+1}</th>
-      <td>{request.first}</td>
-      <td>{request.last}</td>
-      <td>{request.handle}</td>
-      <td><button className="btn btn-primary">View</button></td>
+    <tr key={request.passportNumber}>
+      {/* <th scope="row">{index + 1}</th> */}
+      <td>{request.applicationNumber}</td>
+      <td>{request.fullName}</td>
+      <td>{request.passportNumber}</td>
+      <td>{request.visaType}</td>
+      <td>
+        <Link to={"/view-request-details"}>
+          <button className="btn btn-primary">View</button>
+        </Link>
+      </td>
     </tr>
   ));
 
@@ -32,10 +42,11 @@ const ViewAllRequests = () => {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            {/* <th scope="col">#</th> */}
+            <th scope="col">Application Number</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Passport Number</th>
+            <th scope="col">Visa Type</th>
             <th scope="col">View</th>
           </tr>
         </thead>
