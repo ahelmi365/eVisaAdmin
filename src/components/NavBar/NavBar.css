@@ -5,8 +5,8 @@
   align-items: center;
 
   .left {
-    img{
-        height: 35px;
+    img {
+      height: 35px;
     }
   }
 
@@ -19,7 +19,15 @@
       align-items: center;
       gap: 1.5rem;
       margin: 0;
-      li a{
+      .nav-item {
+        font-weight: 500;
+        padding: 6px 12px ;
+        &:hover {
+          border-bottom: 1px solid gray;
+          border-radius: 10px;
+        }
+      }
+      li a {
         text-decoration: none;
       }
     }

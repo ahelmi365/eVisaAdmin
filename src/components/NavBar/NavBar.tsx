@@ -14,12 +14,12 @@ const NavBar = () => {
       </div>
       <div className="right">
         <ul className="list-items">
-          <li>
+          <li className="nav-item">
             <Link to="/landing" className="al-sidebar-list-link">
               Home
             </Link>
           </li>
-          <li>
+          <li className="nav-item">
             <Link to="/view-all-requests">My Requests</Link>
           </li>
           <li>
