@@ -4,7 +4,8 @@ import "./Signin.css";
 import applogo from "../../assets/images/logo.png";
 import useSignin from "./useSignin";
 const Signin = () => {
-  const { signinData, handleFormChange, handleSignin } = useSignin();
+  const { signinData, handleFormChange, handleSignin, isValidToSignin } =
+    useSignin();
   return (
     <div className="signin-container">
       <div className="signin-top"></div>
@@ -28,9 +29,10 @@ const Signin = () => {
               className="form-control"
               id="username"
               placeholder="Enter your username here"
+              required
               autoComplete="username"
               value={signinData.username}
-              onChange={(event)=>handleFormChange(event)}
+              onChange={(event) => handleFormChange(event)}
             />
           </div>
           <div className="mb-3">
@@ -44,13 +46,14 @@ const Signin = () => {
               id="passw0rd"
               autoComplete="current-password"
               placeholder="Enter your password here"
+              required
               value={signinData.password}
               onChange={handleFormChange}
             />
           </div>
 
           <div className="my-4 w-50">
-            <button className="btn btn-dark w-100">Signin</button>
+            <button className="btn btn-primary w-100" disabled={!isValidToSignin}>Signin</button>
           </div>
         </form>
         <Footer />
