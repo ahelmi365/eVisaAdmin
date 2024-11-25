@@ -9,7 +9,7 @@ const useSignin = () => {
     username: "",
     password: "",
   });
-
+  let isValidToSignin = signinData.username && signinData.password;
   const navigate = useNavigate();
 
   const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -18,17 +18,20 @@ const useSignin = () => {
     const inputFieldValue = event.target.value;
     if (inputFieldName === "username") {
       setSigninData({ ...signinData, username: inputFieldValue });
-    } else if (inputFieldName === "password")
+    } else if (inputFieldName === "password") {
       setSigninData({ ...signinData, password: inputFieldValue });
+    }
+    
   };
   const handleSignin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("submitted");
     console.log(signinData);
+    localStorage.setItem("isLoggedIn", JSON.stringify(true));
     navigate("/landing");
   };
 
-  return { signinData, handleFormChange, handleSignin };
+  return { signinData, handleFormChange, handleSignin, isValidToSignin };
 };
 
 export default useSignin;
