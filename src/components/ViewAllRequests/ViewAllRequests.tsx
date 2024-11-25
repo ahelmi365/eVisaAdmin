@@ -1,33 +1,17 @@
 import { Link } from "react-router-dom";
+import useViewAllRequests from "./useViewAllRequests";
 
 const ViewAllRequests = () => {
-  const requests = [
-    {
-      applicationNumber: "#1234",
-      fullName: "Ali Helmi",
-      passportNumber: "02589641422",
-      visaType: "Single",
-    },
-    {
-      applicationNumber: "#1234",
-      fullName: "Taha Helmi",
-      passportNumber: "02589641422",
-      visaType: "Double",
-    },
-    {
-      applicationNumber: "#1234",
-      fullName: "Moahmed Helmi",
-      passportNumber: "02589641422",
-      visaType: "Single",
-    },
-  ];
-  const renderedRequestsRows = requests.map((request, index) => (
-    <tr key={request.passportNumber}>
+  const { allFilteredRequests, searchText, setSearchText } =
+    useViewAllRequests();
+  const renderedRequestsRows = allFilteredRequests.map((request) => (
+    <tr key={request.id}>
       {/* <th scope="row">{index + 1}</th> */}
       <td>{request.applicationNumber}</td>
       <td>{request.fullName}</td>
       <td>{request.passportNumber}</td>
       <td>{request.visaType}</td>
+      <td>{request.status}</td>
       <td>
         <Link to={"/view-request-details"}>
           <button className="btn btn-primary">View</button>
@@ -38,7 +22,19 @@ const ViewAllRequests = () => {
 
   return (
     <div>
-      <h4 className="mb-4">All Requests</h4>
+      <div className="d-flex justify-content-between">
+        <h4 className="mb-4">All Requests</h4>
+
+        <div className="right">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            className="py-1 px-2 border border-1 rounded focus-ring"
+          />
+        </div>
+      </div>
       <table className="table">
         <thead>
           <tr>
@@ -47,6 +43,7 @@ const ViewAllRequests = () => {
             <th scope="col">Full Name</th>
             <th scope="col">Passport Number</th>
             <th scope="col">Visa Type</th>
+            <th scope="col">Status</th>
             <th scope="col">View</th>
           </tr>
         </thead>
