@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import useViewAllRequests from "./useViewAllRequests";
+import ArrowDownUp from "../Icons/ArrowDownUp/ArrowDownUp";
+import { SortType } from "../../types/interfaces";
+import "./ViewAllRequests.css";
 
 const ViewAllRequests = () => {
-  const { allFilteredRequests, searchText, setSearchText } =
+  const { allFilteredRequests, searchText, setSearchText, sortAllRequests } =
     useViewAllRequests();
   const renderedRequestsRows = allFilteredRequests.map((request) => (
     <tr key={request.id}>
@@ -39,11 +42,47 @@ const ViewAllRequests = () => {
         <thead>
           <tr>
             {/* <th scope="col">#</th> */}
-            <th scope="col">Application Number</th>
-            <th scope="col">Full Name</th>
-            <th scope="col">Passport Number</th>
-            <th scope="col">Visa Type</th>
-            <th scope="col">Status</th>
+            <th
+              scope="col"
+              onClick={() => {
+                sortAllRequests(SortType.ByRequestNumber);
+              }}
+            >
+              Application Number
+              <ArrowDownUp />
+            </th>
+            <th
+              scope="col"
+              onClick={() => {
+                sortAllRequests(SortType.ByRequestFullName);
+              }}
+            >
+              Full Name <ArrowDownUp />
+            </th>
+            <th
+              scope="col"
+              onClick={() => {
+                sortAllRequests(SortType.ByRequestPassportNumber);
+              }}
+            >
+              Passport Number <ArrowDownUp />
+            </th>
+            <th
+              scope="col"
+              onClick={() => {
+                sortAllRequests(SortType.ByRequestVisaType);
+              }}
+            >
+              Visa Type <ArrowDownUp />
+            </th>
+            <th
+              scope="col"
+              onClick={() => {
+                sortAllRequests(SortType.ByRequestStatus);
+              }}
+            >
+              Status <ArrowDownUp />
+            </th>
             <th scope="col">View</th>
           </tr>
         </thead>
