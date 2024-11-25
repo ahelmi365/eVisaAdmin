@@ -12,7 +12,7 @@ const Layout = () => {
         <NavBar />
       </header>
       {/* main */}
-      <main className="main">
+      <main className="main mb-4">
         <div className="card p-4">
           <Outlet />
         </div>
