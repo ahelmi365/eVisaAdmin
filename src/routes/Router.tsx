@@ -18,7 +18,7 @@ export const router = createBrowserRouter(
         <Route path={"/landing"} element={<Landing />} />
         <Route path={"/view-all-requests"} element={<ViewAllRequests />} />
         <Route
-          path={"/view-request-details"}
+          path={"/view-request-details/:id"}
           element={<ViewRequestDetails />}
         />
       </Route>
