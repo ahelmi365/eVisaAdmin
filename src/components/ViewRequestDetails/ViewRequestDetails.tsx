@@ -7,7 +7,8 @@ import ImagePreview from "../ImagePreview/ImagePreview";
 import ViewPDFFile from "../viewPDFFile/ViewPDFFile";
 import useViewRequestDetails from "./useViewRequestDetails";
 const ViewRequestDetails = () => {
-  const applicantInfo = useViewRequestDetails();
+  const { applicantInfo, handleAcceptApplication, handleRejectApplication } =
+    useViewRequestDetails();
   return (
     <div className="view-request-details-container">
       <h4 className="text-center">View Request Details</h4>
@@ -346,12 +347,20 @@ const ViewRequestDetails = () => {
           {/* Accept or Reject */}
           <div className="row gap-4 mt-4">
             <div className="col-sm-12 col-md-3">
-              <button className="btn btn-primary w-100" type="button">
+              <button
+                className="btn btn-primary w-100"
+                type="button"
+                onClick={handleAcceptApplication}
+              >
                 Accept
               </button>
             </div>
             <div className="col-sm-12 col-md-3">
-              <button className="btn btn-danger w-100" type="button">
+              <button
+                className="btn btn-danger w-100"
+                type="button"
+                onClick={handleRejectApplication}
+              >
                 Reject
               </button>
             </div>
