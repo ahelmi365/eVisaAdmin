@@ -6,9 +6,30 @@ import visaInvitationLetterPDF from "../../assets/pdf/invitationLetter.pdf";
 import ImagePreview from "../ImagePreview/ImagePreview";
 import ViewPDFFile from "../viewPDFFile/ViewPDFFile";
 const ViewRequestDetails = () => {
+  const applicantInfo = {
+    fullname: "Sarah Martin",
+    applicationNumber: "#Ref000012",
+    visaType: "Business",
+    entriesNumber: "Single",
+    durationOfStay: "14",
+    haveapreviousvisa: "No",
+    perviousVisaNumber: "---",
+    purposeOfVisit: "Attend Meeting",
+    passportNumber: "P123456AA",
+    fullName: "Sarah Martin",
+    currentAddress: " Ottawa, Canda",
+    gender: "Female",
+    dateOfBirth: "08/01/1990",
+    arrivalDate: "12/01/2024",
+    departureDate: "12/14/2024",
+    mobileNumber: "+1002345678",
+    email: "sarah_martin@domain.com",
+    emergencyContactName: "Martin Scorsese",
+    emergencyContactNumber: "+10023443200",
+  };
   return (
     <div className="view-request-details-container">
-      <h4>View Request Details</h4>
+      <h4 className="text-center">View Request Details</h4>
 
       <div className="row my-3">
         <form className="form-horizontal" name="vm.PaymentForm">
@@ -20,25 +41,29 @@ const ViewRequestDetails = () => {
 
             <div className="row mb-3">
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Application Number</label>
+                <label className="control-label" htmlFor="passportNumberInpt">
+                  Application Number
+                </label>
                 <input
                   readOnly
                   id="passportNumberInpt"
                   type="text"
                   name="passportNumber"
                   className="form-control"
-                  value="#Ref000012"
+                  value={applicantInfo.passportNumber}
                 />
               </div>
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Visa Type</label>
+                <label className="control-label" htmlFor="visaTypeInpt">
+                  Visa Type
+                </label>
                 <input
                   readOnly
                   id="visaTypeInpt"
                   type="text"
                   name="visaType"
                   className="form-control"
-                  value="Business"
+                  value={applicantInfo.visaType}
                 />
               </div>
             </div>
@@ -47,26 +72,30 @@ const ViewRequestDetails = () => {
             {/* Duration Of Stay */}
             <div className="row mb-3">
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Entries Number</label>
+                <label className="control-label" htmlFor="numberOfEntriesInpt">
+                  Entries Number
+                </label>
                 <input
                   readOnly
                   id="numberOfEntriesInpt"
                   type="text"
                   name="numberOfEntriesInpt"
                   className="form-control"
-                  value="Single"
+                  value={applicantInfo.entriesNumber}
                 />
               </div>
 
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Duration Of Stay</label>
+                <label className="control-label" htmlFor="durationInpt">
+                  Duration Of Stay
+                </label>
                 <input
                   readOnly
                   id="durationInpt"
                   type="text"
                   name="durationInpt"
                   className="form-control"
-                  value="14"
+                  value={applicantInfo.durationOfStay}
                 />
               </div>
             </div>
@@ -76,7 +105,7 @@ const ViewRequestDetails = () => {
 
             <div className="row mb-3">
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">
+                <label className="control-label" htmlFor="PreviousVisaInpt">
                   Do you have a previous visa?
                 </label>
 
@@ -86,31 +115,38 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="PreviousVisa"
                   className="form-control"
-                  value="No"
+                  value={applicantInfo.haveapreviousvisa}
                 />
               </div>
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Pervious Visa Number</label>
+                <label
+                  className="control-label"
+                  htmlFor="PreviousVisaNumberInpt"
+                >
+                  Pervious Visa Number
+                </label>
                 <input
                   readOnly
                   id="PreviousVisaNumberInpt"
                   type="text"
                   name="PreviousVisaNumberInpt"
                   className="form-control"
-                  value=""
+                  value={applicantInfo.perviousVisaNumber}
                 />
               </div>
             </div>
             {/* Purpose Of Visit */}
             <div className="col-12">
-              <label className="control-label">Purpose Of Visit</label>
+              <label className="control-label" htmlFor="purposeOfVisitInpt">
+                Purpose Of Visit
+              </label>
               <input
                 readOnly
                 id="purposeOfVisitInpt"
                 type="text"
                 name="purposeOfVisit"
                 className="form-control"
-                value="Attend Meeting"
+                value={applicantInfo.purposeOfVisit}
               />
             </div>
           </fieldset>
@@ -119,9 +155,9 @@ const ViewRequestDetails = () => {
             <legend className="styled-legend">Personal Information</legend>
             {/* Full Name (Passport Name) */}
             {/* Gender */}
-            <div className="row mb-3 g-4 d-flex flex-row-reverse">
+            <div className="row mb-3 d-flex flex-row-reverse">
               {/* right - id photo */}
-              <div className="col-sm-12 col-md-6">
+              <div className="col-sm-12 col-md-6 mb-sm-4 mb-md-0">
                 <div className="document-id-container">
                   <ImagePreview
                     imageUrl={profilePhoto}
@@ -132,7 +168,7 @@ const ViewRequestDetails = () => {
               </div>
               {/* LEFT */}
               <div className="col-sm-12 col-md-6 ">
-                <label className="control-label">
+                <label className="control-label" htmlFor="fullNameInpt">
                   Full Name (Passport Name)
                 </label>
                 <input
@@ -141,22 +177,24 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="fullName"
                   className="form-control"
-                  value="Ali Helmi"
+                  value={applicantInfo.fullName}
                 />
 
-                <label className="control-label">Gender</label>
+                <label className="control-label" htmlFor="genderInpt">
+                  Gender
+                </label>
                 <input
                   readOnly
                   id="genderInpt"
                   type="text"
                   name="gender"
                   className="form-control"
-                  value="Male"
+                  value={applicantInfo.gender}
                 />
 
                 {/* Date Of Birth */}
 
-                <label className="control-label">
+                <label className="control-label" htmlFor="birthDateInpt">
                   Date Of Birth<span>*</span>
                 </label>
 
@@ -166,7 +204,7 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="date"
                   className="form-control"
-                  value="1986/05/31"
+                  value={applicantInfo.dateOfBirth}
                 />
               </div>
             </div>
@@ -174,34 +212,36 @@ const ViewRequestDetails = () => {
             {/* Email */}
             <div className="row">
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Mobile Number</label>
+                <label className="control-label" htmlFor="mobNumberInpt">
+                  Mobile Number
+                </label>
                 <input
                   readOnly
                   id="mobNumberInpt"
                   type="text"
                   name="phoneNumber"
                   className="form-control"
-                  value="20 - 01188566998"
+                  value={applicantInfo.mobileNumber}
                 />
               </div>
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Email</label>
-                <div>
-                  <input
-                    readOnly
-                    id="emailInpt"
-                    type="text"
-                    name="email"
-                    className="form-control"
-                    value="mm@yahoo.com"
-                  />
-                </div>
+                <label className="control-label" htmlFor="emailInpt">
+                  Email
+                </label>
+                <input
+                  readOnly
+                  id="emailInpt"
+                  type="text"
+                  name="email"
+                  className="form-control"
+                  value={applicantInfo.email}
+                />
               </div>
             </div>
 
             {/* Current Address (Where are you currently staying) */}
             <div className="col-12 mt-4">
-              <label className="control-label">
+              <label className="control-label" htmlFor="addressInpt">
                 Current Address (Where are you currently staying)
               </label>
               <input
@@ -210,7 +250,7 @@ const ViewRequestDetails = () => {
                 readOnly
                 className="form-control"
                 maxLength={500}
-                value={"Cairo"}
+                value={applicantInfo.currentAddress}
               />
             </div>
           </fieldset>
@@ -223,9 +263,9 @@ const ViewRequestDetails = () => {
             {/* Passport Number */}
             {/* Passport Copy (image) */}
 
-            <div className="row mb-3 flex-row-reverse">
+            <div className="row flex-row-reverse">
               {/* right - id photo */}
-              <div className="col-sm-12 col-md-6">
+              <div className="col-sm-12 col-md-6 mb-sm-4 mb-md-0">
                 <div className="passport-photo-container">
                   <ImagePreview
                     imageUrl={passportPhoto}
@@ -237,7 +277,9 @@ const ViewRequestDetails = () => {
               </div>
               {/* Passport Number and  Arrival Date/Departure Date*/}
               <div className="col-sm-12 col-md-6">
-                <label className="control-label">Passport Number</label>
+                <label className="control-label" htmlFor="passportNumberInpt">
+                  Passport Number
+                </label>
                 <input
                   readOnly
                   disabled
@@ -245,9 +287,11 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="passportNumber"
                   className="form-control"
-                  value="123456"
+                  value={applicantInfo.passportNumber}
                 />
-                <label className="control-label">Arrival Date</label>
+                <label className="control-label" htmlFor="arrivalDateInpt">
+                  Arrival Date
+                </label>
                 <input
                   readOnly
                   disabled
@@ -255,9 +299,11 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="date"
                   className="form-control"
-                  value="2025/10/01"
+                  value={applicantInfo.arrivalDate}
                 />
-                <label className="control-label">Departure Date</label>
+                <label className="control-label" htmlFor="departureDateInpt">
+                  Departure Date
+                </label>
 
                 <input
                   readOnly
@@ -266,30 +312,21 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="date"
                   className="form-control"
-                  value="2025/10/01"
+                  value={applicantInfo.departureDate}
                 />
               </div>
             </div>
 
             {/* Invitation Letter (image) */}
             <div className="col-12">
-              <label htmlFor="invitationLetter">Invitation Letter</label>
-              {/* <ImagePreview
-                imageSrc={visaInvitationLetter}
-                altText="invitation letter photo"
-                calassNames="rounded"
-              /> */}
+              <label htmlFor="visaInvitationLetterPDF">Invitation Letter</label>
 
               <ViewPDFFile
                 pdfURL={visaInvitationLetterPDF}
                 modalTitleText="View Invitation Letter"
                 openModalButtonText="View Invitation Letter"
+                id="visaInvitationLetterPDF"
               />
-              {/* <iframe
-                src={x}
-                style={{ width: "100%", height: "500px", border: "none" }}
-                title="PDF Viewer"
-              /> */}
             </div>
           </fieldset>
 
@@ -306,7 +343,7 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="emergencyContactName"
                   className="form-control"
-                  value="Kamel Fahd"
+                  value={applicantInfo.emergencyContactName}
                 />
               </div>
               <div className="col-sm-12 col-md-6">
@@ -319,25 +356,26 @@ const ViewRequestDetails = () => {
                   type="text"
                   name="emergencyContactNumber"
                   className="form-control"
-                  value="02-01288556688"
+                  value={applicantInfo.emergencyContactNumber}
                 />
               </div>
             </div>
           </fieldset>
-        </form>
-      </div>
 
-      <div className="row gap-4 mt-4">
-        <div className="col-sm-12 col-md-3">
-          <button className="btn btn-primary w-100" type="button">
-            Accept
-          </button>
-        </div>
-        <div className="col-sm-12 col-md-3">
-          <button className="btn btn-danger w-100" type="button">
-            Reject
-          </button>
-        </div>
+          {/* Accept or Reject */}
+          <div className="row gap-4 mt-4">
+            <div className="col-sm-12 col-md-3">
+              <button className="btn btn-primary w-100" type="button">
+                Accept
+              </button>
+            </div>
+            <div className="col-sm-12 col-md-3">
+              <button className="btn btn-danger w-100" type="button">
+                Reject
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
