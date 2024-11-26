@@ -1,21 +1,16 @@
 .styled-fieldset {
-  /* border: 1px solid #c4cad1; */
   border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* padding: 0.5rem; */
+  margin-bottom: 1rem;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .styled-legend {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
-  /* color: #007bff;  */
-  /* text-transform: uppercase; */
-  /* padding: 0 10px; */
-  /* border: 2px solid #007bff; */
-  border-radius: 5px;
-  /* background-color: #f8f9fa; Bootstrap light background */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border: 1px solid rgb(178, 174, 174);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .document-id-container {
