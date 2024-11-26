@@ -24,7 +24,7 @@ const ViewAllRequests = () => {
       <td>{request.visaType}</td>
       <td>{request.status}</td>
       <td>
-        <Link to={"/view-request-details"}>
+        <Link to={`/view-request-details/${request.id}`}>
           <button className="btn btn-dark">View</button>
         </Link>
       </td>
@@ -78,19 +78,26 @@ const ViewAllRequests = () => {
         </table>
         <div className="d-flex justify-content-between align-items-center">
           <div className="select-container d-flex align-items-center">
-            <label htmlFor="tableItems" className="pe-2" style={{fontWeight:"400"}}>Show</label>
-            <div className="select-items" >
+            <label
+              htmlFor="tableItems"
+              className="pe-2"
+              style={{ fontWeight: "400" }}
+            >
+              Show
+            </label>
+            <div className="select-items">
               <select
-              id="tableItems"
+                id="tableItems"
                 className="form-select form-select-sm"
                 aria-label="Small select example"
+                defaultValue={5}
               >
                 <option>Please select</option>
-                <option value="1" selected>
+                <option value="5" >
                   5
                 </option>
-                <option value="2">10</option>
-                <option value="3">15</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
               </select>
             </div>
             <span className="ms-2">Items</span>
