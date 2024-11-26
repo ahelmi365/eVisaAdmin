@@ -23,7 +23,7 @@ const useViewAllRequests = () => {
     {
       id: 1,
       applicationNumber: "1",
-      fullName: "Ali Helmi",
+      fullName: "Mark Beter",
       passportNumber: "0244444444",
       visaType: VisaType.Single,
       status: VisaStatus.Pending,
@@ -31,7 +31,7 @@ const useViewAllRequests = () => {
     {
       id: 2,
       applicationNumber: "10",
-      fullName: "Taha Helmi",
+      fullName: "Alessa Harry",
       passportNumber: "0255555555",
       visaType: VisaType.Double,
       status: VisaStatus.Accepted,
@@ -39,10 +39,18 @@ const useViewAllRequests = () => {
     {
       id: 3,
       applicationNumber: "20",
-      fullName: "Moahmed Helmi",
+      fullName: "Tofy Sander",
       passportNumber: "0266666666",
       visaType: VisaType.Single,
       status: VisaStatus.Rejected,
+    },
+    {
+      id: 4,
+      applicationNumber: "1500",
+      fullName: "Sarah Martin",
+      passportNumber: "P123456AA",
+      visaType: VisaType.Single,
+      status: VisaStatus.Pending,
     },
   ]);
 
