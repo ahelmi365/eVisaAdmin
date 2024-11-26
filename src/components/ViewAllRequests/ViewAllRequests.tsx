@@ -66,15 +66,66 @@ const ViewAllRequests = () => {
           />
         </div>
       </div>
-      <table className="table">
-        <thead>
-          <tr>
-            {renderedTableHeaders}
-            <th scope="col">View</th>
-          </tr>
-        </thead>
-        <tbody>{renderedRequestsRows}</tbody>
-      </table>
+      <div className="table-responsive">
+        <table className="table">
+          <thead>
+            <tr>
+              {renderedTableHeaders}
+              <th scope="col">View</th>
+            </tr>
+          </thead>
+          <tbody>{renderedRequestsRows}</tbody>
+        </table>
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="select-container d-flex align-items-center">
+            <label htmlFor="tableItems" className="pe-2" style={{fontWeight:"400"}}>Show</label>
+            <div className="select-items" >
+              <select
+              id="tableItems"
+                className="form-select form-select-sm"
+                aria-label="Small select example"
+              >
+                <option>Please select</option>
+                <option value="1" selected>
+                  5
+                </option>
+                <option value="2">10</option>
+                <option value="3">15</option>
+              </select>
+            </div>
+            <span className="ms-2">Items</span>
+          </div>
+          <nav aria-label="Table navigation">
+            <ul className="pagination justify-content-end m-0">
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  Previous
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  1
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  2
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  3
+                </a>
+              </li>
+              <li className="page-item">
+                <a className="page-link" href="#">
+                  Next
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   );
 };
