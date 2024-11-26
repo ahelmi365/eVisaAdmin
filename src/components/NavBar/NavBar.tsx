@@ -6,7 +6,7 @@ import useNavBar from "./useNavBar";
 const NavBar = () => {
   const handleLogout = useNavBar();
   return (
-    <div className="top-navbar">
+    <nav className="top-navbar">
       <div className="left">
         <Link to="/landing" className="al-sidebar-list-link">
           <img src={logo} />
@@ -31,7 +31,7 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 
