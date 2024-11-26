@@ -1,6 +1,7 @@
 import "./ViewRequestDetails.css";
 
 import profilePhoto from "../../assets/images/profilePhoto.jpg";
+import passportPhoto from "../../assets/images/passportPhoto.jpg";
 const ViewRequestDetails = () => {
   return (
     <div className="view-request-details-container">
@@ -119,7 +120,7 @@ const ViewRequestDetails = () => {
               {/* right - id photo */}
               <div className="col-sm-12 col-md-6">
                 <div className="document-id-container">
-                  <img src={profilePhoto} alt="document-ID" />
+                  <img src={profilePhoto} alt="document-ID"/>
                   <h6>Personal Photo</h6>
                 </div>
               </div>
@@ -208,6 +209,7 @@ const ViewRequestDetails = () => {
             </div>
           </fieldset>
 
+          {/* Passport and Travel Information */}
           <fieldset className="styled-fieldset" disabled>
             <legend className="styled-legend">
               Passport and Travel Information
@@ -215,7 +217,14 @@ const ViewRequestDetails = () => {
             {/* Passport Number */}
             {/* Passport Copy (image) */}
 
-            <div className="row mb-3">
+            <div className="row mb-3 flex-row-reverse">
+              {/* right - id photo */}
+              <div className="col-sm-12 col-md-6">
+                <div className="passport-photo-container">
+                  <img src={passportPhoto} alt="Passport photo"  className="rounded"/>
+                  <h6>Passport Copy</h6>
+                </div>
+              </div>
               <div className="col-sm-12 col-md-6">
                 <label className="control-label">Passport Number</label>
                 <input
@@ -226,15 +235,7 @@ const ViewRequestDetails = () => {
                   className="form-control"
                   value="123456"
                 />
-              </div>
-            </div>
-
-            {/* Arrival Date */}
-            {/* Departure Date */}
-            <div className="row mb-3">
-              <div className="col-sm-12 col-md-6">
                 <label className="control-label">Arrival Date</label>
-
                 <input
                   readOnly
                   id="arrivalDateInpt"
@@ -243,8 +244,6 @@ const ViewRequestDetails = () => {
                   className="form-control"
                   value="2025/10/01"
                 />
-              </div>
-              <div className="col-sm-12 col-md-6">
                 <label className="control-label">Departure Date</label>
 
                 <input
@@ -257,6 +256,7 @@ const ViewRequestDetails = () => {
                 />
               </div>
             </div>
+
             {/* Personal Photo (image) */}
             {/* Invitation Letter (image) */}
           </fieldset>
