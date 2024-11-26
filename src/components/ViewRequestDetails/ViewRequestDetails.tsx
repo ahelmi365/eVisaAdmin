@@ -2,6 +2,7 @@ import "./ViewRequestDetails.css";
 
 import profilePhoto from "../../assets/images/profilePhoto.jpg";
 import passportPhoto from "../../assets/images/passportPhoto.jpg";
+import ImagePreview from "../ImagePreview/ImagePreview";
 const ViewRequestDetails = () => {
   return (
     <div className="view-request-details-container">
@@ -120,8 +121,11 @@ const ViewRequestDetails = () => {
               {/* right - id photo */}
               <div className="col-sm-12 col-md-6">
                 <div className="document-id-container">
-                  <img src={profilePhoto} alt="document-ID"/>
-                  <h6>Personal Photo</h6>
+                  <ImagePreview
+                    imageSrc={profilePhoto}
+                    altText="document-ID"
+                    title="Personal Photo"
+                  />
                 </div>
               </div>
               {/* LEFT */}
@@ -221,8 +225,12 @@ const ViewRequestDetails = () => {
               {/* right - id photo */}
               <div className="col-sm-12 col-md-6">
                 <div className="passport-photo-container">
-                  <img src={passportPhoto} alt="Passport photo"  className="rounded"/>
-                  <h6>Passport Copy</h6>
+                  <ImagePreview
+                    imageSrc={passportPhoto}
+                    altText="Passport photo"
+                    calassNames="rounded"
+                    title="Passport Copy"
+                  />
                 </div>
               </div>
               <div className="col-sm-12 col-md-6">
