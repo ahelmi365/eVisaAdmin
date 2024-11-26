@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const applicantInfo = {
   fullname: "Sarah Martin",
@@ -23,10 +23,20 @@ const applicantInfo = {
 };
 const useViewRequestDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  console.log({id})
+  console.log({ id });
 
-  return applicantInfo;
+  const handleAcceptApplication = () => {
+    console.log("handleAcceptApplication");
+    navigate("/view-all-requests");
+  };
+  const handleRejectApplication = () => {
+    console.log("handleRejectApplication");
+    navigate("/view-all-requests");
+  };
+
+  return { applicantInfo, handleAcceptApplication, handleRejectApplication };
 };
 
 export default useViewRequestDetails;
