@@ -109,10 +109,8 @@ const useViewAllRequests = () => {
   }, [searchText]);
 
   const sortAllRequests = (sortType: SortType) => {
-    console.log({ sortType });
     setSortedBy(sortType);
     const sortedRequests = sortRequestsByText(allFilteredRequests);
-    console.log({ sortedRequests });
     setAllRequetss(sortedRequests);
     if (sortType === sortedBy) {
       setIsSortAssending(!isSortAssending);
@@ -128,7 +126,7 @@ const useViewAllRequests = () => {
     setSearchText,
     sortAllRequests,
     sortedBy,
-    isSortAssending
+    isSortAssending,
   };
 };
 
