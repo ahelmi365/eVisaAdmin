@@ -1,4 +1,6 @@
-import "./ViewRequestDetails.css"
+import "./ViewRequestDetails.css";
+
+import profilePhoto from "../../assets/images/profilePhoto.jpg";
 const ViewRequestDetails = () => {
   return (
     <div className="view-request-details-container">
@@ -113,8 +115,16 @@ const ViewRequestDetails = () => {
             <legend className="styled-legend">Personal Information</legend>
             {/* Full Name (Passport Name) */}
             {/* Gender */}
-            <div className="row mb-3">
+            <div className="row mb-3 g-4 d-flex flex-row-reverse">
+              {/* right - id photo */}
               <div className="col-sm-12 col-md-6">
+                <div className="document-id-container">
+                  <img src={profilePhoto} alt="document-ID" />
+                  <h6>Personal Photo</h6>
+                </div>
+              </div>
+              {/* LEFT */}
+              <div className="col-sm-12 col-md-6 ">
                 <label className="control-label">
                   Full Name (Passport Name)
                 </label>
@@ -126,9 +136,7 @@ const ViewRequestDetails = () => {
                   className="form-control"
                   value="Ali Helmi"
                 />
-              </div>
 
-              <div className="col-sm-12 col-md-6">
                 <label className="control-label">Gender</label>
                 <input
                   readOnly
@@ -138,12 +146,9 @@ const ViewRequestDetails = () => {
                   className="form-control"
                   value="Male"
                 />
-              </div>
-            </div>
-            {/* Date Of Birth */}
-            {/* Current Address (Where are you currently staying) */}
-            <div className="row mb-3">
-              <div className="col-sm-12 col-md-6">
+
+                {/* Date Of Birth */}
+
                 <label className="control-label">
                   Date Of Birth<span>*</span>
                 </label>
@@ -157,24 +162,10 @@ const ViewRequestDetails = () => {
                   value="1986/05/31"
                 />
               </div>
-              <div className="col-sm-12 col-md-6">
-                <label className="control-label">
-                  Current Address (Where are you currently staying)
-                </label>
-                <input
-                  id="addressInpt"
-                  name="address"
-                  readOnly
-                  className="form-control"
-                  maxLength={500}
-                  value={"Cairo"}
-                />
-              </div>
             </div>
-
             {/* Mobile Number */}
             {/* Email */}
-            <div className="row mb-3">
+            <div className="row">
               <div className="col-sm-12 col-md-6">
                 <label className="control-label">Mobile Number</label>
                 <input
@@ -188,7 +179,7 @@ const ViewRequestDetails = () => {
               </div>
               <div className="col-sm-12 col-md-6">
                 <label className="control-label">Email</label>
-                <div className="">
+                <div>
                   <input
                     readOnly
                     id="emailInpt"
@@ -200,10 +191,27 @@ const ViewRequestDetails = () => {
                 </div>
               </div>
             </div>
+
+            {/* Current Address (Where are you currently staying) */}
+            <div className="col-12 mt-4">
+              <label className="control-label">
+                Current Address (Where are you currently staying)
+              </label>
+              <input
+                id="addressInpt"
+                name="address"
+                readOnly
+                className="form-control"
+                maxLength={500}
+                value={"Cairo"}
+              />
+            </div>
           </fieldset>
 
           <fieldset className="styled-fieldset" disabled>
-            <legend className="styled-legend">Passport and Travel Information</legend>
+            <legend className="styled-legend">
+              Passport and Travel Information
+            </legend>
             {/* Passport Number */}
             {/* Passport Copy (image) */}
 

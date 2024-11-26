@@ -17,3 +17,17 @@
   /* background-color: #f8f9fa; Bootstrap light background */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
+
+.document-id-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  img {
+    max-width: 16rem;
+    height: 170px;
+    border-radius: 50%;
+    border: 1px solid gray;
+  }
+}
