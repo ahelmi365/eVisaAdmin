@@ -1,8 +1,10 @@
+import { useRef } from "react";
+
 interface IProps {
   pdfURL: string;
   modalTitleText: string;
   openModalButtonText: string;
-  id:string
+  id: string;
 }
 
 const ViewPDFFile = ({
@@ -10,10 +12,18 @@ const ViewPDFFile = ({
   openModalButtonText,
   modalTitleText,
 }: IProps) => {
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleModalClose = () => {
+    // Return focus to the trigger button when modal closes
+    triggerButtonRef.current?.focus();
+  };
+
   return (
     <div>
       {/* <!-- Button trigger modal --> */}
       <button
+        ref={triggerButtonRef}
         type="button"
         className="btn btn-dark"
         data-bs-toggle="modal"
@@ -29,6 +39,7 @@ const ViewPDFFile = ({
         tabIndex={-1}
         aria-labelledby="viewPDFLabel"
         aria-hidden="true"
+        onTransitionEnd={handleModalClose} // Handle close transition
       >
         <div className="modal-dialog">
           <div className="modal-content">
