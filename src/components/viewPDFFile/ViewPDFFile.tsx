@@ -2,6 +2,7 @@ interface IProps {
   pdfURL: string;
   modalTitleText: string;
   openModalButtonText: string;
+  id:string
 }
 
 const ViewPDFFile = ({
@@ -9,7 +10,6 @@ const ViewPDFFile = ({
   openModalButtonText,
   modalTitleText,
 }: IProps) => {
-  console.log({ pdfURL });
   return (
     <div>
       {/* <!-- Button trigger modal --> */}
