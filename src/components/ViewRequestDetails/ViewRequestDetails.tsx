@@ -2,7 +2,9 @@ import "./ViewRequestDetails.css";
 
 import profilePhoto from "../../assets/images/profilePhoto.jpg";
 import passportPhoto from "../../assets/images/passportPhoto.jpg";
+import visaInvitationLetterPDF from "../../assets/pdf/invitationLetter.pdf";
 import ImagePreview from "../ImagePreview/ImagePreview";
+import ViewPDFFile from "../viewPDFFile/ViewPDFFile";
 const ViewRequestDetails = () => {
   return (
     <div className="view-request-details-container">
@@ -122,7 +124,7 @@ const ViewRequestDetails = () => {
               <div className="col-sm-12 col-md-6">
                 <div className="document-id-container">
                   <ImagePreview
-                    imageSrc={profilePhoto}
+                    imageUrl={profilePhoto}
                     altText="document-ID"
                     title="Personal Photo"
                   />
@@ -214,7 +216,7 @@ const ViewRequestDetails = () => {
           </fieldset>
 
           {/* Passport and Travel Information */}
-          <fieldset className="styled-fieldset" disabled>
+          <fieldset className="styled-fieldset">
             <legend className="styled-legend">
               Passport and Travel Information
             </legend>
@@ -226,17 +228,19 @@ const ViewRequestDetails = () => {
               <div className="col-sm-12 col-md-6">
                 <div className="passport-photo-container">
                   <ImagePreview
-                    imageSrc={passportPhoto}
+                    imageUrl={passportPhoto}
                     altText="Passport photo"
                     calassNames="rounded"
                     title="Passport Copy"
                   />
                 </div>
               </div>
+              {/* Passport Number and  Arrival Date/Departure Date*/}
               <div className="col-sm-12 col-md-6">
                 <label className="control-label">Passport Number</label>
                 <input
                   readOnly
+                  disabled
                   id="passportNumberInpt"
                   type="text"
                   name="passportNumber"
@@ -246,6 +250,7 @@ const ViewRequestDetails = () => {
                 <label className="control-label">Arrival Date</label>
                 <input
                   readOnly
+                  disabled
                   id="arrivalDateInpt"
                   type="text"
                   name="date"
@@ -256,6 +261,7 @@ const ViewRequestDetails = () => {
 
                 <input
                   readOnly
+                  disabled
                   id="departureDateInpt"
                   type="text"
                   name="date"
@@ -265,8 +271,26 @@ const ViewRequestDetails = () => {
               </div>
             </div>
 
-            {/* Personal Photo (image) */}
             {/* Invitation Letter (image) */}
+            <div className="col-12">
+              <label htmlFor="invitationLetter">Invitation Letter</label>
+              {/* <ImagePreview
+                imageSrc={visaInvitationLetter}
+                altText="invitation letter photo"
+                calassNames="rounded"
+              /> */}
+
+              <ViewPDFFile
+                pdfURL={visaInvitationLetterPDF}
+                modalTitleText="View Invitation Letter"
+                openModalButtonText="View Invitation Letter"
+              />
+              {/* <iframe
+                src={x}
+                style={{ width: "100%", height: "500px", border: "none" }}
+                title="PDF Viewer"
+              /> */}
+            </div>
           </fieldset>
 
           {/* Emergency Contact Name */}
