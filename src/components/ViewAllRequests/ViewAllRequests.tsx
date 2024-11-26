@@ -25,7 +25,7 @@ const ViewAllRequests = () => {
       <td>{request.status}</td>
       <td>
         <Link to={"/view-request-details"}>
-          <button className="btn btn-primary">View</button>
+          <button className="btn btn-dark">View</button>
         </Link>
       </td>
     </tr>
