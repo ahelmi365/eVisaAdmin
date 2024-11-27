@@ -1,39 +1,42 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  updateRequestStatus
+} from "../../store/slices/allRequestDetailsSlice";
+import { RootState } from "../../store/store";
+import { VisaStatus } from "../../types/interfaces";
 
-const applicantInfo = {
-  fullname: "Sarah Martin",
-  applicationNumber: "#Ref000012",
-  visaType: "Business",
-  entriesNumber: "Single",
-  durationOfStay: "14",
-  haveapreviousvisa: "No",
-  perviousVisaNumber: "---",
-  purposeOfVisit: "Attend Meeting",
-  passportNumber: "P123456AA",
-  fullName: "Sarah Martin",
-  currentAddress: " Ottawa, Canda",
-  gender: "Female",
-  dateOfBirth: "08/01/1990",
-  arrivalDate: "12/01/2024",
-  departureDate: "12/14/2024",
-  mobileNumber: "+1002345678",
-  email: "sarah_martin@domain.com",
-  emergencyContactName: "Martin Scorsese",
-  emergencyContactNumber: "+10023443200",
-};
 const useViewRequestDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   console.log({ id });
+  const dispatch = useDispatch();
+  const allRequests = useSelector(
+    (state: RootState) => state.allRequestDetails
+  );
+
+  const applicantInfo = allRequests.filter(
+    (request) => String(request.id) === id
+  )[0];
 
   const handleAcceptApplication = () => {
     console.log("handleAcceptApplication");
-    navigate("/view-all-requests");
+    if (id) {
+      const IdNumber = Number(id);
+      const status = VisaStatus.Accepted;
+      dispatch(updateRequestStatus({ id: IdNumber, status }));
+      navigate("/view-all-requests");
+    }
   };
   const handleRejectApplication = () => {
     console.log("handleRejectApplication");
-    navigate("/view-all-requests");
+    if (id) {
+      const IdNumber = Number(id);
+      const status = VisaStatus.Rejected;
+      dispatch(updateRequestStatus({ id: IdNumber, status }));
+      navigate("/view-all-requests");
+    }
   };
 
   return { applicantInfo, handleAcceptApplication, handleRejectApplication };
