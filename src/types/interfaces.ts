@@ -6,10 +6,29 @@ export interface IRequest {
   visaType: VisaType;
   status: VisaStatus;
 }
-
-export enum VisaType {
+export interface IRequestDetails extends IRequest {
+  entriesNumber: EntriesNumber;
+  durationOfStay: string;
+  haveapreviousvisa: string;
+  perviousVisaNumber: string;
+  purposeOfVisit: string;
+  currentAddress: string;
+  gender: string;
+  dateOfBirth: string;
+  arrivalDate: string;
+  departureDate: string;
+  mobileNumber: string;
+  email: string;
+  emergencyContactName: string;
+  emergencyContactNumber: string;
+}
+export enum EntriesNumber {
   Single = "Single",
   Double = "Double",
+}
+export enum VisaType {
+  Business = "Business",
+  Touristic = "Touristic",
 }
 
 export enum VisaStatus {
