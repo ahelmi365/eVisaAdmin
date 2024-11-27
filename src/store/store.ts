@@ -3,6 +3,7 @@ import { persistReducer, persistStore } from "redux-persist";
 
 // slices
 import authSlice from "./slices/authSlice"
+import localStorage from "redux-persist/es/storage/session";
 
 const rootReducer = combineReducers({
     adminAuth: authSlice,
