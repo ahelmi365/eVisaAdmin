@@ -1,9 +1,12 @@
+import { useDispatch } from "react-redux";
+import { setAdminLoggedIn } from "../../store/slices/authSlice";
 const useNavBar = () => {
+  const dispatch = useDispatch();
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", JSON.stringify(false));
+    dispatch(setAdminLoggedIn(false));
   };
 
-  return handleLogout
+  return handleLogout;
 };
 
-export default useNavBar
+export default useNavBar;
