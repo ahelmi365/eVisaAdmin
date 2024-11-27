@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import {
   IRequest,
+  IRequestDetails,
   SortType,
   VisaStatus,
   VisaType,
 } from "../../types/interfaces";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { updateAllRequestsOrdering } from "../../store/slices/allRequestDetailsSlice";
 
 const tableHeaders = [
   { label: "Application Number", sortType: SortType.ByRequestNumber },
@@ -14,50 +18,25 @@ const tableHeaders = [
   { label: "Status", sortType: SortType.ByRequestStatus },
 ];
 const useViewAllRequests = () => {
+  const dispatch = useDispatch();
   const [searchText, setSearchText] = useState("");
   const [isSortAssending, setIsSortAssending] = useState(true);
   const [sortedBy, setSortedBy] = useState<SortType>(
     SortType.ByRequestFullName
   );
-  const [allRequests, setAllRequetss] = useState<IRequest[]>([
-    {
-      id: 1,
-      applicationNumber: "1",
-      fullName: "Mark Beter",
-      passportNumber: "0244444444",
-      visaType: VisaType.Single,
-      status: VisaStatus.Pending,
-    },
-    {
-      id: 2,
-      applicationNumber: "10",
-      fullName: "Alessa Harry",
-      passportNumber: "0255555555",
-      visaType: VisaType.Double,
-      status: VisaStatus.Accepted,
-    },
-    {
-      id: 3,
-      applicationNumber: "20",
-      fullName: "Tofy Sander",
-      passportNumber: "0266666666",
-      visaType: VisaType.Single,
-      status: VisaStatus.Rejected,
-    },
-    {
-      id: 4,
-      applicationNumber: "1500",
-      fullName: "Sarah Martin",
-      passportNumber: "P123456AA",
-      visaType: VisaType.Single,
-      status: VisaStatus.Pending,
-    },
-  ]);
+  const allRequestsX = useSelector(
+    (state: RootState) => state.allRequestDetails
+  );
 
-  const sortRequestsByText = (requests: IRequest[]) => {
-    const sortedRequests = requests.sort((a, b) => {
+  const sortRequestsByText = (requests: IRequestDetails[]) => {
+    // Create a shallow copy of the array
+    const requestsCopy = [...requests];
+
+    // Sort the copied array
+    const sortedRequests = requestsCopy.sort((a, b) => {
       const fullNameA = (a[sortedBy] as string).toLowerCase();
       const fullNameB = (b[sortedBy] as string).toLowerCase();
+
       if (fullNameA < fullNameB) {
         return isSortAssending ? -1 : 1;
       } else if (fullNameA > fullNameB) {
@@ -68,13 +47,14 @@ const useViewAllRequests = () => {
 
     return sortedRequests;
   };
-  const [allFilteredRequests, setAllFilteredRequetss] = useState<IRequest[]>(
-    sortRequestsByText(allRequests)
-  );
+
+  const [allFilteredRequests, setAllFilteredRequetss] = useState<
+    IRequestDetails[]
+  >(sortRequestsByText(allRequestsX));
 
   const filterAllRequests = (text: string) => {
     const textLowerCase = text.toLowerCase();
-    const filteredRequests = allRequests.filter((request) => {
+    const filteredRequests = allRequestsX.filter((request) => {
       return isTextFoundInRequestInfo(request, textLowerCase);
     });
 
@@ -111,7 +91,9 @@ const useViewAllRequests = () => {
   const sortAllRequests = (sortType: SortType) => {
     setSortedBy(sortType);
     const sortedRequests = sortRequestsByText(allFilteredRequests);
-    setAllRequetss(sortedRequests);
+    dispatch(updateAllRequestsOrdering(sortedRequests));
+    // setAllRequetss(sortedRequests);
+    setAllFilteredRequetss(sortedRequests);
     if (sortType === sortedBy) {
       setIsSortAssending(!isSortAssending);
     } else {
