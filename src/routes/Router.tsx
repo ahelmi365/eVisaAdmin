@@ -8,6 +8,7 @@ import Signin from "../components/Signin/Signin";
 import ViewAllRequests from "../components/ViewAllRequests/ViewAllRequests";
 import ViewRequestDetails from "../components/ViewRequestDetails/ViewRequestDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import CreateVisaRequest from "../components/CreateVisaRequest/CreateVisaRequest";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,7 @@ export const router = createBrowserRouter(
       <Route path="/" element={<PrivateRoutes />}>
         <Route index element={<Landing />} />
         <Route path={"/landing"} element={<Landing />} />
+        <Route path={"/create-visa-request"} element={<CreateVisaRequest />} />
         <Route path={"/view-all-requests"} element={<ViewAllRequests />} />
         <Route
           path={"/view-request-details/:id"}
