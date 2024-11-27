@@ -1,10 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { setAdminLoggedIn } from "../../store/slices/authSlice";
+import { useDispatch } from "react-redux";
 interface ISignin {
   username: string;
   password: string;
 }
 const useSignin = () => {
+  const dispatch = useDispatch();
   const [signinData, setSigninData] = useState<ISignin>({
     username: "",
     password: "",
@@ -21,13 +24,12 @@ const useSignin = () => {
     } else if (inputFieldName === "password") {
       setSigninData({ ...signinData, password: inputFieldValue });
     }
-    
   };
   const handleSignin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("submitted");
     console.log(signinData);
-    localStorage.setItem("isLoggedIn", JSON.stringify(true));
+    dispatch(setAdminLoggedIn(true));
     navigate("/landing");
   };
 
