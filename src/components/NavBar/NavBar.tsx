@@ -20,6 +20,9 @@ const NavBar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link to="/create-visa-request">Request eVisa</Link>
+          </li>
+          <li className="nav-item">
             <Link to="/view-all-requests">My Requests</Link>
           </li>
           <li>
