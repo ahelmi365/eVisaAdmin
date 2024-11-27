@@ -1,0 +1,12 @@
+.step {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 5px 15px;
+  text-align: center;
+
+  &.active{
+    border-color: #38A169;
+    background-color: #38A169;
+    color: white;
+  }
+}
