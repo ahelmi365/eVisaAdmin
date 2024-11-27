@@ -5,7 +5,7 @@ const PrivateRoutes = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   console.log({ isLoggedIn });
 
-  if (isLoggedIn === "false") {
+  if (isLoggedIn === "false" || !isLoggedIn) {
     return <Navigate to={"/signin"} />;
   } else {
     return <Layout />;

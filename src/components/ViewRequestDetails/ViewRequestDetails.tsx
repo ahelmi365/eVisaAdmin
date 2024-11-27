@@ -14,25 +14,26 @@ const ViewRequestDetails = () => {
       <h4 className="text-center">View Request Details</h4>
 
       <div className="row my-3">
-        <form className="form-horizontal" name="vm.PaymentForm">
-          <fieldset className="styled-fieldset" disabled>
+        <form name="PaymentForm">
+          {/* Application Details */}
+          <fieldset className="styled-fieldset mb-4" disabled>
             <legend className="styled-legend">Application Details</legend>
 
             {/* Application Number */}
             {/* Visa Type */}
 
-            <div className="row mb-3">
+            <div className="row mb-2">
               <div className="col-sm-12 col-md-6">
-                <label className="control-label" htmlFor="passportNumberInpt">
+                <label className="control-label" htmlFor="applicationNumber">
                   Application Number
                 </label>
                 <input
                   readOnly
-                  id="passportNumberInpt"
+                  id="applicationNumber"
                   type="text"
                   name="passportNumber"
                   className="form-control"
-                  value={applicantInfo.passportNumber}
+                  value={applicantInfo.applicationNumber}
                 />
               </div>
               <div className="col-sm-12 col-md-6">
@@ -52,7 +53,7 @@ const ViewRequestDetails = () => {
 
             {/* Entries Number */}
             {/* Duration Of Stay */}
-            <div className="row mb-3">
+            <div className="row mb-2">
               <div className="col-sm-12 col-md-6">
                 <label className="control-label" htmlFor="numberOfEntriesInpt">
                   Entries Number
@@ -85,7 +86,7 @@ const ViewRequestDetails = () => {
             {/* Do you have a previous visa? */}
             {/* Previous Visa Number */}
 
-            <div className="row mb-3">
+            <div className="row mb-2">
               <div className="col-sm-12 col-md-6">
                 <label className="control-label" htmlFor="PreviousVisaInpt">
                   Do you have a previous visa?
@@ -133,7 +134,8 @@ const ViewRequestDetails = () => {
             </div>
           </fieldset>
 
-          <fieldset className="styled-fieldset" disabled>
+          {/* Personal Informatio */}
+          <fieldset className="styled-fieldset mb-4" disabled>
             <legend className="styled-legend">Personal Information</legend>
             {/* Full Name (Passport Name) */}
             {/* Gender */}
@@ -148,7 +150,7 @@ const ViewRequestDetails = () => {
                   />
                 </div>
               </div>
-              {/* LEFT */}
+              {/* Left */}
               <div className="col-sm-12 col-md-6 ">
                 <label className="control-label" htmlFor="fullNameInpt">
                   Full Name (Passport Name)
@@ -158,7 +160,7 @@ const ViewRequestDetails = () => {
                   id="fullNameInpt"
                   type="text"
                   name="fullName"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.fullName}
                 />
 
@@ -170,7 +172,7 @@ const ViewRequestDetails = () => {
                   id="genderInpt"
                   type="text"
                   name="gender"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.gender}
                 />
 
@@ -185,7 +187,7 @@ const ViewRequestDetails = () => {
                   id="birthDateInpt"
                   type="text"
                   name="date"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.dateOfBirth}
                 />
               </div>
@@ -202,7 +204,7 @@ const ViewRequestDetails = () => {
                   id="mobNumberInpt"
                   type="text"
                   name="phoneNumber"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.mobileNumber}
                 />
               </div>
@@ -215,7 +217,7 @@ const ViewRequestDetails = () => {
                   id="emailInpt"
                   type="text"
                   name="email"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.email}
                 />
               </div>
@@ -230,7 +232,7 @@ const ViewRequestDetails = () => {
                 id="addressInpt"
                 name="address"
                 readOnly
-                className="form-control"
+                className="form-control mb-2"
                 maxLength={500}
                 value={applicantInfo.currentAddress}
               />
@@ -238,7 +240,7 @@ const ViewRequestDetails = () => {
           </fieldset>
 
           {/* Passport and Travel Information */}
-          <fieldset className="styled-fieldset">
+          <fieldset className="styled-fieldset mb-4">
             <legend className="styled-legend">
               Passport and Travel Information
             </legend>
@@ -268,7 +270,7 @@ const ViewRequestDetails = () => {
                   id="passportNumberInpt"
                   type="text"
                   name="passportNumber"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.passportNumber}
                 />
                 <label className="control-label" htmlFor="arrivalDateInpt">
@@ -280,7 +282,7 @@ const ViewRequestDetails = () => {
                   id="arrivalDateInpt"
                   type="text"
                   name="date"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.arrivalDate}
                 />
                 <label className="control-label" htmlFor="departureDateInpt">
@@ -293,7 +295,7 @@ const ViewRequestDetails = () => {
                   id="departureDateInpt"
                   type="text"
                   name="date"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.departureDate}
                 />
               </div>
@@ -312,11 +314,10 @@ const ViewRequestDetails = () => {
             </div>
           </fieldset>
 
-          {/* Emergency Contact Name */}
-          {/* Emergency Contact Number */}
-          <fieldset className="styled-fieldset" disabled>
+          {/* Emergency Contact */}
+          <fieldset className="styled-fieldset mb-4" disabled>
             <legend className="styled-legend"> Emergency Contact</legend>
-            <div className="row mb-3">
+            <div className="row mb-2">
               <div className="col-sm-12 col-md-6">
                 <label className="control-label">Emergency Contact Name</label>
                 <input
@@ -324,7 +325,7 @@ const ViewRequestDetails = () => {
                   id="emergencyContactNameInpt"
                   type="text"
                   name="emergencyContactName"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.emergencyContactName}
                 />
               </div>
@@ -337,7 +338,7 @@ const ViewRequestDetails = () => {
                   id="emergencyContactNumberInpt"
                   type="text"
                   name="emergencyContactNumber"
-                  className="form-control"
+                  className="form-control mb-2"
                   value={applicantInfo.emergencyContactNumber}
                 />
               </div>
