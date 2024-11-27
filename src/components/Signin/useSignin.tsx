@@ -1,22 +1,27 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setAdminLoggedIn } from "../../store/slices/authSlice";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 interface ISignin {
   username: string;
   password: string;
 }
 const useSignin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(
+    (state: RootState) => state.adminAuth.isLoggedIn
+  );
   const [signinData, setSigninData] = useState<ISignin>({
     username: "",
     password: "",
   });
   let isValidToSignin = signinData.username && signinData.password;
-  const navigate = useNavigate();
+
 
   const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.name);
     const inputFieldName = event.target.name;
     const inputFieldValue = event.target.value;
     if (inputFieldName === "username") {
@@ -32,6 +37,12 @@ const useSignin = () => {
     dispatch(setAdminLoggedIn(true));
     navigate("/landing");
   };
+  
+  useEffect(()=>{
+    if(isLoggedIn){
+      navigate("/")
+    }
+  }, [])
 
   return { signinData, handleFormChange, handleSignin, isValidToSignin };
 };
