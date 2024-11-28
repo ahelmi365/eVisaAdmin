@@ -10,8 +10,14 @@ import FormStep4 from "./FormSteps/FormStep4";
 import FormStep5 from "./FormSteps/FormStep5";
 
 const CreateVisaRequest = () => {
-  const { steps, currentStep, setCuurentStep, progressBarRef } =
-    useCreateVisaReqeust();
+  const {
+    steps,
+    currentStep,
+    setCuurentStep,
+    progressBarRef,
+    stepProgressValue,
+    updateProgressbarValue,
+  } = useCreateVisaReqeust();
 
   return (
     <div>
@@ -24,8 +30,9 @@ const CreateVisaRequest = () => {
               key={index}
               name={step.name}
               number={step.number}
-              active={currentStep === step.number}
-              setCuurentStep = {setCuurentStep}
+              active={currentStep >= step.number}
+              setCuurentStep={setCuurentStep}
+              includeConnector={step.number < steps.length}
             />
           ))}
         </div>
@@ -33,11 +40,32 @@ const CreateVisaRequest = () => {
         <div className="progress-bar">
           <progress
             max="100"
-            value="17"
+            value={stepProgressValue}
             className="w-100"
             ref={progressBarRef}
           ></progress>
         </div>
+        <div className="navigation-buttons d-flex gap-4 mt-4 justify-content-center">
+          <button
+            className="btn btn-primary"
+            disabled={currentStep === 1}
+            onClick={() => {
+              setCuurentStep(currentStep - 1);
+            }}
+          >
+            ← Prev
+          </button>
+          <button
+            className="btn btn-primary"
+            disabled={currentStep === 6}
+            onClick={() => {
+              setCuurentStep(currentStep + 1);
+            }}
+          >
+            Next →
+          </button>
+        </div>
+
         <div className="steps-content card p-4">
           {currentStep === 1 && <FormStep1 />}
           {currentStep === 2 && <FormStep2 />}
@@ -45,37 +73,6 @@ const CreateVisaRequest = () => {
           {currentStep === 4 && <FormStep4 />}
           {currentStep === 5 && <FormStep5 />}
         </div>
-      </div>
-
-      <div className="navigation-buttons d-flex gap-4 mt-4 justify-content-center">
-        <button
-          className="btn btn-primary"
-          disabled={currentStep === 1}
-          onClick={() => {
-            setCuurentStep(currentStep - 1);
-
-            console.log(progressBarRef.current?.value);
-            if (progressBarRef.current) {
-              progressBarRef.current.value = progressBarRef.current?.value - 17;
-            }
-          }}
-        >
-          ← Prev
-        </button>
-        <button
-          className="btn btn-primary"
-          disabled={currentStep === 6}
-          onClick={() => {
-            setCuurentStep(currentStep + 1);
-
-            console.log(progressBarRef.current?.value);
-            if (progressBarRef.current) {
-              progressBarRef.current.value = progressBarRef.current?.value + 17;
-            }
-          }}
-        >
-          Next →
-        </button>
       </div>
     </div>
   );

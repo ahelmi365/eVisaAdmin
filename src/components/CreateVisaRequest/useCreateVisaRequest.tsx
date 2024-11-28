@@ -1,30 +1,30 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const useCreateVisaReqeust = () => {
   const steps = [
     {
       number: 1,
-      name: "Step One",
+      name: "1",
     },
     {
       number: 2,
-      name: "Step Two",
+      name: "2",
     },
     {
       number: 3,
-      name: "Step Three",
+      name: "3",
     },
     {
       number: 4,
-      name: "Step Four",
+      name: "4",
     },
     {
       number: 5,
-      name: "Step Five",
+      name: "5",
     },
     {
       number: 6,
-      name: "Step Six",
+      name: "6",
     },
   ];
 
@@ -32,7 +32,29 @@ const useCreateVisaReqeust = () => {
 
   const [currentStep, setCuurentStep] = useState(1);
 
-  return { steps, currentStep, setCuurentStep, progressBarRef };
+  const stepProgressValue = Number((100 / steps.length).toFixed(0));
+
+  const updateProgressbarValue = () => {
+    if (progressBarRef.current) {
+      progressBarRef.current.value = (100 / steps.length) * currentStep;
+      // if current = 1              (100 /      6     )  *       1      = 17
+      // if current = 2              (100 /      6     )  *       2      = 34
+      // if current = 3              (100 /      6     )  *       3      = 51
+
+    }
+  };
+
+  useEffect(()=>{
+    updateProgressbarValue()
+  },[currentStep])
+  return {
+    steps,
+    currentStep,
+    setCuurentStep,
+    progressBarRef,
+    stepProgressValue,
+    updateProgressbarValue
+  };
 };
 
 export default useCreateVisaReqeust;

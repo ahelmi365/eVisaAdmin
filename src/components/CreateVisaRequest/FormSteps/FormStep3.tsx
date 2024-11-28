@@ -6,7 +6,7 @@ const FormStep3 = () => {
       <form name="PaymentForm">
         {/* Personal Informatio */}
         <fieldset className="styled-fieldset mb-4">
-          <legend className="styled-legend">Personal Information</legend>
+          <legend className="styled-legend">3. Personal Information</legend>
           {/* Full Name (Passport Name) */}
           {/* Gender */}
           <div className="row mb-3 d-flex flex-row-reverse">

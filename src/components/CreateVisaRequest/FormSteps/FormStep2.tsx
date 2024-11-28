@@ -6,7 +6,7 @@ const FormStep2 = () => {
       <form name="PaymentForm">
         {/* Application Details */}
         <fieldset className="styled-fieldset mb-4">
-          <legend className="styled-legend">Application Details</legend>
+          <legend className="styled-legend">2. Application Details</legend>
 
           {/* Application Number */}
           {/* Visa Type */}

@@ -7,7 +7,7 @@ const FormStep4 = () => {
         {/* Passport and Travel Information */}
         <fieldset className="styled-fieldset mb-4">
           <legend className="styled-legend">
-            Passport and Travel Information
+            4. Passport and Travel Information
           </legend>
           {/* Passport Number */}
           {/* Passport Copy (image) */}

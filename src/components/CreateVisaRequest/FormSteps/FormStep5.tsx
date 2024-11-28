@@ -6,7 +6,7 @@ const FormStep5 = () => {
       <form name="PaymentForm">
         {/* Emergency Contact */}
         <fieldset className="styled-fieldset mb-4">
-          <legend className="styled-legend"> Emergency Contact</legend>
+          <legend className="styled-legend">5. Emergency Contact</legend>
           <div className="row mb-2">
             <div className="col-sm-12 col-md-6">
               <label className="control-label">Emergency Contact Name</label>
