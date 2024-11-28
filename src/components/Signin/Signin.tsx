@@ -1,7 +1,8 @@
 import Footer from "../Footer/Footer";
 import "./Signin.css";
 
-import applogo from "../../assets/images/logo.png";
+// import applogo from "../../assets/images/logo.png";
+import applogo from "../../assets/svgs/eVisaColorLogo.svg";
 import useSignin from "./useSignin";
 const Signin = () => {
   const { signinData, handleFormChange, handleSignin, isValidToSignin } =
@@ -53,7 +54,12 @@ const Signin = () => {
           </div>
 
           <div className="my-4 w-50">
-            <button className="btn btn-primary w-100" disabled={!isValidToSignin}>Signin</button>
+            <button
+              className="btn btn-primary w-100"
+              disabled={!isValidToSignin}
+            >
+              Signin
+            </button>
           </div>
         </form>
         <Footer />

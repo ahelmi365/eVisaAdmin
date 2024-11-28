@@ -1,6 +1,7 @@
 import "./NavBar.css";
 
-import logo from "../../assets/images/logo.png";
+// import logo from "../../assets/images/logo.png";
+import logo from "../../assets/svgs/eVisaColorLogo.svg";
 import { Link } from "react-router-dom";
 import useNavBar from "./useNavBar";
 const NavBar = () => {

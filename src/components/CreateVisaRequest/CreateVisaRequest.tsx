@@ -7,8 +7,8 @@ import FormStep2 from "./FormSteps/FormStep2";
 import FormStep3 from "./FormSteps/FormStep3";
 import useCreateVisaReqeust from "./useCreateVisaRequest";
 import FormStep4 from "./FormSteps/FormStep4";
-import FormStep5 from "./FormSteps/FormStep6";
-import FormStep6 from "./FormSteps/FormStep5";
+import FormStep5 from "./FormSteps/FormStep5";
+import FormStep6 from "./FormSteps/FormStep6";
 
 const CreateVisaRequest = () => {
   const {
@@ -50,8 +50,8 @@ const CreateVisaRequest = () => {
           {currentStep === 2 && <FormStep2 />}
           {currentStep === 3 && <FormStep3 />}
           {currentStep === 4 && <FormStep4 />}
-          {currentStep === 5 && <FormStep5 />}
-          {currentStep === 6 && <FormStep6 forSteps={true} />}
+          {currentStep === 5 && <FormStep5 forSteps={true} />}
+          {currentStep === 6 && <FormStep6 />}
         </div>
         {/* Navigation Button */}
         <div className="navigation-buttons d-flex gap-4 mt-2 justify-content-center">

@@ -324,7 +324,7 @@ const FormStep5 = ({ forSteps }: { forSteps: boolean }) => {
             </fieldset>
 
             {/* Emergency Contact */}
-            <fieldset className="styled-fieldset mb-4" disabled>
+            <fieldset className="styled-fieldset" disabled>
               <legend className="styled-legend"> Emergency Contact</legend>
               <div className="row mb-2">
                 <div className="col-sm-12 col-md-6">
