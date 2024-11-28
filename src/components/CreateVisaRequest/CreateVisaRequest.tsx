@@ -16,27 +16,25 @@ const CreateVisaRequest = () => {
     setCuurentStep,
     progressBarRef,
     stepProgressValue,
-    updateProgressbarValue,
   } = useCreateVisaReqeust();
 
   return (
     <div>
-      <h6>Create Visa Request</h6>
+      <h4>Create Visa Request</h4>
 
       <div className="steps-continer mt-4">
         <div className="steps-nav">
           {steps.map((step, index) => (
             <Step
               key={index}
-              name={step.name}
-              number={step.number}
+              step = {step}
               active={currentStep >= step.number}
               setCuurentStep={setCuurentStep}
               includeConnector={step.number < steps.length}
             />
           ))}
         </div>
-
+        {/* Progress Bar */}
         <div className="progress-bar">
           <progress
             max="100"
@@ -45,28 +43,32 @@ const CreateVisaRequest = () => {
             ref={progressBarRef}
           ></progress>
         </div>
-        <div className="navigation-buttons d-flex gap-4 mt-4 justify-content-center">
+
+        {/* Navigation Button */}
+        <div className="navigation-buttons d-flex gap-4 mt-2 justify-content-center">
+          {/* Previous */}
           <button
-            className="btn btn-primary"
+            className="btn btn-primary py-2 px-4"
             disabled={currentStep === 1}
             onClick={() => {
               setCuurentStep(currentStep - 1);
             }}
           >
-            ← Prev
+            <span style={{ fontWeight: "bold" }}>&laquo;</span> Prev
           </button>
+          {/* NEXT */}
           <button
-            className="btn btn-primary"
+            className="btn btn-primary py-2 px-4"
             disabled={currentStep === 6}
             onClick={() => {
               setCuurentStep(currentStep + 1);
             }}
           >
-            Next →
+            Next <span style={{ fontWeight: "bold" }}>&raquo;</span>
           </button>
         </div>
 
-        <div className="steps-content card p-4">
+        <div className="steps-content">
           {currentStep === 1 && <FormStep1 />}
           {currentStep === 2 && <FormStep2 />}
           {currentStep === 3 && <FormStep3 />}

@@ -2,10 +2,10 @@ import { applicantInitialInfo } from "../../../utils/consts";
 
 const FormStep3 = () => {
   return (
-    <div className="row my-3">
+    <div className="row">
       <form name="PaymentForm">
         {/* Personal Informatio */}
-        <fieldset className="styled-fieldset mb-4">
+        <fieldset className="styled-fieldset">
           <legend className="styled-legend">3. Personal Information</legend>
           {/* Full Name (Passport Name) */}
           {/* Gender */}

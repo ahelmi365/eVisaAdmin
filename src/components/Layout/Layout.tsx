@@ -13,7 +13,7 @@ const Layout = () => {
       </header>
       {/* main */}
       <main className="main mb-4">
-        <section className="card p-4">
+        <section className="card p-3  p-md-4">
           <Outlet />
         </section>
       </main>

@@ -1,12 +1,20 @@
 .step {
   border: 1px solid gray;
   border-radius: 10px;
-  padding: 5px 15px;
+  /* padding: 5px 15px; */
   text-align: center;
 
-  &.active{
-    border-color: #38A169;
-    background-color: #38A169;
+  &.active {
+    border-color: #38a169;
+    background-color: #38a169;
     color: white;
+  }
+}
+
+.connector {
+  border-bottom: 2px dashed gray;
+  width: 100%;
+  &.active {
+    border-bottom-color: #38a169;
   }
 }

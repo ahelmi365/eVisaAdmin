@@ -5,26 +5,32 @@ const useCreateVisaReqeust = () => {
     {
       number: 1,
       name: "1",
+      toolTipText:"Select Your Country"
     },
     {
       number: 2,
       name: "2",
+      toolTipText:"Application Details"
     },
     {
       number: 3,
       name: "3",
+      toolTipText:"Personal Information"
     },
     {
       number: 4,
       name: "4",
+      toolTipText:"Passport and Travel Information"
     },
     {
       number: 5,
       name: "5",
+      toolTipText:"Emergency Contact"
     },
     {
       number: 6,
       name: "6",
+      toolTipText:"Preview Your Request"
     },
   ];
 
@@ -40,20 +46,18 @@ const useCreateVisaReqeust = () => {
       // if current = 1              (100 /      6     )  *       1      = 17
       // if current = 2              (100 /      6     )  *       2      = 34
       // if current = 3              (100 /      6     )  *       3      = 51
-
     }
   };
 
-  useEffect(()=>{
-    updateProgressbarValue()
-  },[currentStep])
+  useEffect(() => {
+    updateProgressbarValue();
+  }, [currentStep]);
   return {
     steps,
     currentStep,
     setCuurentStep,
     progressBarRef,
     stepProgressValue,
-    updateProgressbarValue
   };
 };
 

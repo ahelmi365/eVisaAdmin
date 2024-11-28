@@ -10,23 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap:5px;
     /* width: 100px; */
-
-    .connector{
-      height: 10px;
-      border-bottom: 3px dashed gray;
-      width: 100%;
-      &.active{
-        border-bottom-color: #38A169;
-      }
-    }
   }
 
   /* Set the background of the progress bar itself */
   .progress-bar progress {
     width: 100%; /* Ensure it stretches to fit */
-    height: 10px; /* Adjust height as needed */
+    height: 7px; /* Adjust height as needed */
     appearance: none; /* Reset default styles */
     -webkit-appearance: none; /* For WebKit browsers */
     background-color: #e0e0e0; /* Gray background for progress container */
@@ -41,7 +32,7 @@
   }
 
   .progress-bar progress::-webkit-progress-value {
-    background-color: #38A169; /* Green for the filled portion */
+    background-color: #38a169; /* Green for the filled portion */
     border-radius: 5px; /* Match the outer border radius */
   }
 

@@ -2,10 +2,10 @@ import { applicantInitialInfo } from "../../../utils/consts";
 
 const FormStep5 = () => {
   return (
-    <div className="row my-3">
+    <div className="row">
       <form name="PaymentForm">
         {/* Emergency Contact */}
-        <fieldset className="styled-fieldset mb-4">
+        <fieldset className="styled-fieldset">
           <legend className="styled-legend">5. Emergency Contact</legend>
           <div className="row mb-2">
             <div className="col-sm-12 col-md-6">

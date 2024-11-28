@@ -20,7 +20,7 @@
     .main{
         flex: 1;
         /* min-height: 3000px; */
-        margin-top: 50px;
+        margin-top: 35px;
 
         .card{
             box-shadow: -5px 5px 5px -5px gray;
