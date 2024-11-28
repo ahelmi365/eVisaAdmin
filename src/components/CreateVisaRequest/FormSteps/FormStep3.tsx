@@ -1,112 +1,117 @@
 import { applicantInitialInfo } from "../../../utils/consts";
 
+import { ChangeEvent, useState } from "react";
+import passportIcon from "../../../assets/images/passportIcon2.jpg";
+import ImagePreview from "../../ImagePreview/ImagePreview";
 const FormStep3 = () => {
+  const [imageUrl, setImageUrl] = useState(passportIcon);
+
+  const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]; // Get the first selected file
+    if (file) {
+      const imageSrc = URL.createObjectURL(file); // Create a temporary URL
+      setImageUrl(imageSrc); // Update the state
+    }
+  };
   return (
     <div className="row">
       <form name="PaymentForm">
-        {/* Personal Informatio */}
+        {/* Passport and Travel Information */}
         <fieldset className="styled-fieldset">
-          <legend className="styled-legend">3. Personal Information</legend>
-          {/* Full Name (Passport Name) */}
-          {/* Gender */}
-          <div className="row mb-3 d-flex flex-row-reverse">
+          <legend className="styled-legend">
+            4. Passport and Travel Information
+          </legend>
+          {/* Passport Number */}
+          {/* Passport Copy (image) */}
+
+          <div className="row flex-row-reverse">
             {/* right - id photo */}
             <div className="col-sm-12 col-md-6 mb-sm-4 mb-md-0">
-              {/* <div className="document-id-container">
-                  <ImagePreview
-                    imageUrl={profilePhoto}
-                    altText="document-ID"
-                    title="Personal Photo"
-                  />
-                </div> */}
+              <div className="passport-photo-container">
+                <ImagePreview
+                  imageUrl={imageUrl}
+                  altText="Passport photo"
+                  calassNames="rounded"
+                  // title="Passport Copy"
+                />
+
+                <label htmlFor="personalPhoto">
+                  Passport Copy (Images Only)
+                </label>
+
+                <input
+                  className="form-control mt-4"
+                  type="file"
+                  name="personalPhoto"
+                  id="personalPhoto"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
+              </div>
             </div>
-            {/* Left */}
-            <div className="col-sm-12 col-md-6 ">
-              <label className="control-label" htmlFor="fullNameInpt">
-                Full Name (Passport Name)
+            {/* Passport Number and  Arrival Date/Departure Date*/}
+            <div className="col-sm-12 col-md-6">
+              <label className="control-label" htmlFor="passportNumberInpt">
+                Passport Number
               </label>
               <input
                 readOnly
-                id="fullNameInpt"
+                id="passportNumberInpt"
                 type="text"
-                name="fullName"
+                name="passportNumber"
                 className="form-control mb-2"
-                value={applicantInitialInfo.fullName}
+                value={applicantInitialInfo.passportNumber}
               />
-
-              <label className="control-label" htmlFor="genderInpt">
-                Gender
+              <label className="control-label" htmlFor="arrivalDateInpt">
+                Arrival Date
               </label>
               <input
-                readOnly
-                id="genderInpt"
-                type="text"
-                name="gender"
-                className="form-control mb-2"
-                value={applicantInitialInfo.gender}
-              />
-
-              {/* Date Of Birth */}
-
-              <label className="control-label" htmlFor="birthDateInpt">
-                Date Of Birth<span>*</span>
-              </label>
-
-              <input
-                readOnly
-                id="birthDateInpt"
-                type="text"
+                id="arrivalDateInpt"
+                type="date"
                 name="date"
                 className="form-control mb-2"
-                value={applicantInitialInfo.dateOfBirth}
+                // value={applicantInitialInfo.arrivalDate}
               />
-            </div>
-          </div>
-          {/* Mobile Number */}
-          {/* Email */}
-          <div className="row">
-            <div className="col-sm-12 col-md-6">
-              <label className="control-label" htmlFor="mobNumberInpt">
-                Mobile Number
+              <label className="control-label" htmlFor="departureDateInpt">
+                Departure Date
               </label>
+
               <input
-                readOnly
-                id="mobNumberInpt"
-                type="text"
-                name="phoneNumber"
+                id="departureDateInpt"
+                type="date"
+                name="date"
                 className="form-control mb-2"
-                value={applicantInitialInfo.mobileNumber}
+                // value={applicantInitialInfo.departureDate}
               />
-            </div>
-            <div className="col-sm-12 col-md-6">
-              <label className="control-label" htmlFor="emailInpt">
-                Email
+
+              {/* upload image */}
+
+              <label htmlFor="visaInvitationLetterPDF">
+                Invitation Letter (PDF Only)
               </label>
+
               <input
-                readOnly
-                id="emailInpt"
-                type="text"
-                name="email"
-                className="form-control mb-2"
-                value={applicantInitialInfo.email}
+                className="form-control"
+                type="file"
+                name="visaInvitationLetterPDF"
+                id="visaInvitationLetterPDF"
+                accept="application/pdf"
+                // onChange={handleImageUpload}
               />
             </div>
           </div>
 
-          {/* Current Address (Where are you currently staying) */}
-          <div className="col-12 mt-4">
-            <label className="control-label" htmlFor="addressInpt">
-              Current Address (Where are you currently staying)
-            </label>
-            <input
-              id="addressInpt"
-              name="address"
-              readOnly
-              className="form-control mb-2"
-              maxLength={500}
-              value={applicantInitialInfo.currentAddress}
+          {/* Invitation Letter (image) */}
+          {/* <div className="col-12">
+            <label htmlFor="visaInvitationLetterPDF">Invitation Letter</label>
+
+            <ViewPDFFile
+              pdfURL={visaInvitationLetterPDF}
+              modalTitleText="View Invitation Letter"
+              openModalButtonText="View Invitation Letter"
+              id="visaInvitationLetterPDF"
             />
-          </div>
+          </div> */}
         </fieldset>
       </form>
     </div>

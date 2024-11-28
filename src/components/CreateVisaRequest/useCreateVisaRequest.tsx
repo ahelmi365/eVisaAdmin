@@ -5,32 +5,32 @@ const useCreateVisaReqeust = () => {
     {
       number: 1,
       name: "1",
-      toolTipText:"Select Your Country"
+      toolTipText: "Personal Information",
     },
     {
       number: 2,
       name: "2",
-      toolTipText:"Application Details"
+      toolTipText: "Application Details",
     },
     {
       number: 3,
       name: "3",
-      toolTipText:"Personal Information"
+      toolTipText: "Passport and Travel Information",
     },
     {
       number: 4,
       name: "4",
-      toolTipText:"Passport and Travel Information"
+      toolTipText: "Emergency Contact",
     },
     {
       number: 5,
       name: "5",
-      toolTipText:"Emergency Contact"
+      toolTipText: "Review and Submit",
     },
     {
       number: 6,
       name: "6",
-      toolTipText:"Preview Your Request"
+      toolTipText: "Visa Payment",
     },
   ];
 

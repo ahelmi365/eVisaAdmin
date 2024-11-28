@@ -15,9 +15,10 @@ const ImagePreview = ({
   calassNames,
 }: ImagePreviewProps) => {
   return (
-    <div>
+    <div >
       <Zoom>
         <img
+        
           src={imageUrl}
           alt={altText}
           className={calassNames}
@@ -25,6 +26,7 @@ const ImagePreview = ({
             width: "100%",
             maxWidth: "300px", // Adjust thumbnail size
             cursor: "zoom-in",
+            height:"170px"
           }}
         />
       </Zoom>

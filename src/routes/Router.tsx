@@ -9,6 +9,7 @@ import ViewAllRequests from "../components/ViewAllRequests/ViewAllRequests";
 import ViewRequestDetails from "../components/ViewRequestDetails/ViewRequestDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import CreateVisaRequest from "../components/CreateVisaRequest/CreateVisaRequest";
+import FormStep5 from "../components/CreateVisaRequest/FormSteps/FormStep5";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,10 @@ export const router = createBrowserRouter(
         <Route path={"/landing"} element={<Landing />} />
         <Route path={"/create-visa-request"} element={<CreateVisaRequest />} />
         <Route path={"/view-all-requests"} element={<ViewAllRequests />} />
+        <Route
+          path={"/view-my-request"}
+          element={<FormStep5 forSteps={false} />}
+        />
         <Route
           path={"/view-request-details/:id"}
           element={<ViewRequestDetails />}

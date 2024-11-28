@@ -1,3 +1,4 @@
+import { EntriesNumber, VisaType } from "../../../types/interfaces";
 import { applicantInitialInfo } from "../../../utils/consts";
 
 const FormStep2 = () => {
@@ -26,17 +27,19 @@ const FormStep2 = () => {
               />
             </div>
             <div className="col-sm-12 col-md-6">
-              <label className="control-label" htmlFor="visaTypeInpt">
+              <label className="control-label" htmlFor="visaType">
                 Visa Type
               </label>
-              <input
-                readOnly
-                id="visaTypeInpt"
-                type="text"
+              <select
+                id="visaType"
                 name="visaType"
-                className="form-control"
-                value={applicantInitialInfo.visaType}
-              />
+                className="form-select"
+                defaultValue={VisaType.Business}
+              >
+                <option value={"-1"}>Please select</option>
+                <option value={VisaType.Business}>{VisaType.Business}</option>
+                <option value={VisaType.Touristic}>{VisaType.Touristic}</option>
+              </select>
             </div>
           </div>
 
@@ -47,14 +50,20 @@ const FormStep2 = () => {
               <label className="control-label" htmlFor="numberOfEntriesInpt">
                 Entries Number
               </label>
-              <input
-                readOnly
+              <select
                 id="numberOfEntriesInpt"
-                type="text"
                 name="numberOfEntriesInpt"
-                className="form-control"
-                value={applicantInitialInfo.entriesNumber}
-              />
+                className="form-select"
+                defaultValue={EntriesNumber.Single}
+              >
+                <option value={"-1"}>Please select</option>
+                <option value={EntriesNumber.Single}>
+                  {EntriesNumber.Single}
+                </option>
+                <option value={EntriesNumber.Double}>
+                  {EntriesNumber.Double}
+                </option>
+              </select>
             </div>
 
             <div className="col-sm-12 col-md-6">
@@ -64,7 +73,7 @@ const FormStep2 = () => {
               <input
                 readOnly
                 id="durationInpt"
-                type="text"
+                type="number"
                 name="durationInpt"
                 className="form-control"
                 value={applicantInitialInfo.durationOfStay}
@@ -81,14 +90,16 @@ const FormStep2 = () => {
                 Do you have a previous visa?
               </label>
 
-              <input
-                readOnly
+              <select
                 id="PreviousVisaInpt"
-                type="text"
                 name="PreviousVisa"
-                className="form-control"
-                value={applicantInitialInfo.haveapreviousvisa}
-              />
+                className="form-select"
+                defaultValue={applicantInitialInfo.haveapreviousvisa}
+              >
+                <option value={"-1"}>Please select</option>
+                <option value={"Yes"}>Yes</option>
+                <option value={"No"}>No</option>
+              </select>
             </div>
             <div className="col-sm-12 col-md-6">
               <label className="control-label" htmlFor="PreviousVisaNumberInpt">

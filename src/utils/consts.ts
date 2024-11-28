@@ -7,8 +7,8 @@ import {
 
 export const applicantInitialInfo = {
   id: 1,
-  applicationNumber: "1",
-  fullName: "Mark Beter",
+  applicationNumber: "#Ref000012",
+  fullName: "Sarah Martin",
   visaType: VisaType.Business,
   entriesNumber: EntriesNumber.Single,
   durationOfStay: "14",
@@ -41,7 +41,7 @@ export const allRequests: IRequestDetails[] = [
     passportNumber: "P123456AA",
     currentAddress: "Ottawa, Canada",
     gender: "Female",
-    dateOfBirth: "08/01/1990",
+    dateOfBirth: "01/01/2000",
     arrivalDate: "12/01/2024",
     departureDate: "12/14/2024",
     mobileNumber: "+1002345678",

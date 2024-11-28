@@ -4,75 +4,32 @@ const FormStep4 = () => {
   return (
     <div className="row">
       <form name="PaymentForm">
-        {/* Passport and Travel Information */}
+        {/* Emergency Contact */}
         <fieldset className="styled-fieldset">
-          <legend className="styled-legend">
-            4. Passport and Travel Information
-          </legend>
-          {/* Passport Number */}
-          {/* Passport Copy (image) */}
-
-          <div className="row flex-row-reverse">
-            {/* right - id photo */}
-            <div className="col-sm-12 col-md-6 mb-sm-4 mb-md-0">
-              {/* <div className="passport-photo-container">
-                  <ImagePreview
-                    imageUrl={passportPhoto}
-                    altText="Passport photo"
-                    calassNames="rounded"
-                    title="Passport Copy"
-                  />
-                </div> */}
-            </div>
-            {/* Passport Number and  Arrival Date/Departure Date*/}
+          <legend className="styled-legend">5. Emergency Contact</legend>
+          <div className="row mb-2">
             <div className="col-sm-12 col-md-6">
-              <label className="control-label" htmlFor="passportNumberInpt">
-                Passport Number
-              </label>
+              <label className="control-label">Emergency Contact Name</label>
               <input
                 readOnly
-                id="passportNumberInpt"
+                id="emergencyContactNameInpt"
                 type="text"
-                name="passportNumber"
+                name="emergencyContactName"
                 className="form-control mb-2"
-                value={applicantInitialInfo.passportNumber}
-              />
-              <label className="control-label" htmlFor="arrivalDateInpt">
-                Arrival Date
-              </label>
-              <input
-                readOnly
-                id="arrivalDateInpt"
-                type="text"
-                name="date"
-                className="form-control mb-2"
-                value={applicantInitialInfo.arrivalDate}
-              />
-              <label className="control-label" htmlFor="departureDateInpt">
-                Departure Date
-              </label>
-
-              <input
-                readOnly
-                id="departureDateInpt"
-                type="text"
-                name="date"
-                className="form-control mb-2"
-                value={applicantInitialInfo.departureDate}
+                value={applicantInitialInfo.emergencyContactName}
               />
             </div>
-          </div>
-
-          {/* Invitation Letter (image) */}
-          <div className="col-12">
-            <label htmlFor="visaInvitationLetterPDF">Invitation Letter</label>
-
-            {/* <ViewPDFFile
-                pdfURL={visaInvitationLetterPDF}
-                modalTitleText="View Invitation Letter"
-                openModalButtonText="View Invitation Letter"
-                id="visaInvitationLetterPDF"
-              /> */}
+            <div className="col-sm-12 col-md-6">
+              <label className="control-label">Emergency Contact Number</label>
+              <input
+                readOnly
+                id="emergencyContactNumberInpt"
+                type="text"
+                name="emergencyContactNumber"
+                className="form-control mb-2"
+                value={applicantInitialInfo.emergencyContactNumber}
+              />
+            </div>
           </div>
         </fieldset>
       </form>

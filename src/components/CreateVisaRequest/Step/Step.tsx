@@ -32,7 +32,7 @@ const Step = ({ step, active, setCuurentStep, includeConnector }: IProps) => {
     <>
       <button
         className={`step ${
-          active ? "active" : "not-active"
+          active ? "active" : ""
         } px-2 py-sm-2 px-sm-3 px-md-4`}
         data-bs-toggle="tooltip"
         data-bs-placement="top"
@@ -45,7 +45,7 @@ const Step = ({ step, active, setCuurentStep, includeConnector }: IProps) => {
         <div className="step-name">{step.name}</div>
       </button>
       {includeConnector && (
-        <div className={`connector ${active ? "active" : "not-active"}`}></div>
+        <div className={`connector ${active ? "active" : ""}`}></div>
       )}
     </>
   );
